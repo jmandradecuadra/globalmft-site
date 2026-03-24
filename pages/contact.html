@@ -101,7 +101,14 @@
         margin: 20px 0;
         display: flex;
         justify-content: center;
-        min-height: 65px; /* Evita saltos de layout mientras carga */
+        min-height: 65px;
+      }
+
+      /* Estado deshabilitado visual del botón */
+      .btn-primary:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        filter: grayscale(1);
       }
 
       @media (max-width: 1024px) {
@@ -205,33 +212,6 @@
                 </div>
               </div>
             </div>
-
-            <div
-              style="
-                margin-top: 32px;
-                padding: 24px;
-                background: var(--surface);
-                border: 1px solid var(--border);
-                border-radius: 8px;
-              "
-              class="reveal"
-            >
-              <h4
-                style="
-                  font-size: 13px;
-                  font-weight: 700;
-                  color: var(--white);
-                  margin-bottom: 8px;
-                "
-              >
-                Response Times
-              </h4>
-              <p style="font-size: 13px; color: var(--muted); line-height: 1.7">
-                General inquiries: within 1 business day. ISV product requests:
-                within 2 business days. Compliance and legal: within 3 business
-                days. For urgent matters, note "URGENT" in your subject line.
-              </p>
-            </div>
           </div>
 
           <div class="contact-form-wrap reveal reveal-delay-2">
@@ -292,18 +272,6 @@
                     <option>Cloud Solutions</option>
                     <option>Cybersecurity &amp; Compliance</option>
                     <option>Digital Transformation</option>
-                    <option>Business Analytics</option>
-                    <option>Telecom &amp; Connectivity</option>
-                    <option>Operational Efficiency</option>
-                  </optgroup>
-                  <optgroup label="ISV Products">
-                    <option value="zelle">Zelle Verification Platform</option>
-                    <option value="ixm">IXM Portal (Waitlist)</option>
-                    <option>WhatsApp Business Compliance</option>
-                  </optgroup>
-                  <optgroup label="Other">
-                    <option>Partnership / Reseller</option>
-                    <option>General Inquiry</option>
                   </optgroup>
                 </select>
               </div>
@@ -311,7 +279,7 @@
                 <label>How Can We Help?</label>
                 <textarea
                   name="message"
-                  placeholder="Briefly describe your needs, challenges, or the initiative you're working on…"
+                  placeholder="Briefly describe your needs..."
                   required
                 ></textarea>
               </div>
@@ -320,7 +288,9 @@
                 <div
                   class="cf-turnstile"
                   data-sitekey="0x4AAAAAACvYqFbuqNwB9lmt"
-                  data-callback="onTurnstileSuccess"
+                  data-callback="enableSubmitButton"
+                  data-expired-callback="disableSubmitButton"
+                  data-error-callback="disableSubmitButton"
                 ></div>
               </div>
 
@@ -328,6 +298,7 @@
                 type="submit"
                 id="submit-btn"
                 class="btn btn-primary"
+                disabled
                 style="
                   width: 100%;
                   justify-content: center;
@@ -358,33 +329,32 @@
       GMFTNav.inject("../");
     </script>
     <script src="../js/main.js"></script>
+
     <script>
-      // Función para manejar la validación estricta antes de que actúe main.js
-      (function () {
-        const form = document.getElementById("contact-form");
+      // FUNCIONES DE CONTROL DEL BOTÓN
+      function enableSubmitButton() {
+        const btn = document.getElementById("submit-btn");
+        btn.disabled = false;
+        console.log("Turnstile verificado. Botón activado.");
+      }
 
-        form.addEventListener(
-          "submit",
-          function (e) {
-            // Buscamos el token de Turnstile
-            const turnstileResponse = form.querySelector(
-              '[name="cf-turnstile-response"]',
-            ).value;
+      function disableSubmitButton() {
+        const btn = document.getElementById("submit-btn");
+        btn.disabled = true;
+        console.log("Turnstile expirado o error. Botón bloqueado.");
+      }
 
-            if (!turnstileResponse) {
-              // Detenemos TODO el proceso de envío
-              e.preventDefault();
-              e.stopImmediatePropagation();
-
-              alert(
-                "Please complete the security check (Turnstile) before submitting.",
-              );
-              return false;
-            }
-          },
-          true,
-        ); // El parámetro 'true' hace que esta validación se ejecute ANTES que otras
-      })();
+      // Bloqueo extra por si main.js intenta forzar el envío
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (e) {
+          const btn = document.getElementById("submit-btn");
+          if (btn.disabled) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            return false;
+          }
+        });
 
       // Pre-select interest from URL param
       (function () {
