@@ -1,0 +1,21 @@
+# Cloudflare Pages — _redirects
+
+# EN clean URLs
+/home              /index.html                   301
+/services          /pages/services.html          301
+/analytics         /pages/analytics.html         301
+/products          /pages/products.html          301
+/about             /pages/about.html             301
+/contact           /pages/contact.html           301
+/terms             /pages/terms.html             301
+/privacy           /pages/terms.html             301
+
+# ES clean URLs
+/es                /es/index.html                301
+/es/services       /pages/es/services.html       301
+/es/analytics      /pages/es/analytics.html      301
+/es/products       /pages/es/products.html       301
+/es/about          /pages/es/about.html          301
+/es/contact        /pages/es/contact.html        301
+/es/terms          /pages/es/terms.html          301
+/es/privacy        /pages/es/terms.html          301

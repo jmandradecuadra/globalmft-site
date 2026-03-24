@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consultoría en Analítica Empresarial — Global MFT</title>
+<meta name="description" content="Estrategia de datos, implementación de IA/ML, dashboards de BI y consultoría en analítica empresarial de Global MFT.">
+<link rel="stylesheet" href="../../css/global.css">
+<style>
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px}
+.kpi-card{background:var(--dark2);border:1px solid var(--border);border-radius:8px;padding:24px;text-align:center;transition:all var(--transition)}
+.kpi-card:hover{border-color:rgba(232,78,27,0.3);transform:translateY(-3px)}
+.kpi-val{font-family:'Sora',sans-serif;font-size:36px;font-weight:800;color:var(--orange);line-height:1;margin-bottom:6px}
+.kpi-lbl{font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)}
+.use-case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.uc-card{padding:32px;background:var(--dark2);border:1px solid var(--border);border-radius:8px;transition:all var(--transition);position:relative;overflow:hidden}
+.uc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.uc-card.orange::before{background:var(--orange)}.uc-card.blue::before{background:var(--blue-mid)}.uc-card.green::before{background:#22c55e}
+.uc-card:hover{transform:translateY(-4px);box-shadow:0 20px 48px rgba(0,0,0,0.45)}
+.uc-icon{font-size:32px;margin-bottom:16px;display:block}
+.uc-card h3{font-size:18px;margin-bottom:10px}
+.uc-card p{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:16px}
+.uc-tag{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange)}
+.analytics-services{display:flex;flex-direction:column;gap:0}
+.as-item{display:grid;grid-template-columns:64px 1fr 1fr;gap:32px;padding:40px 0;border-bottom:1px solid var(--border);align-items:start}
+.as-item:last-child{border-bottom:none}
+.as-num{font-family:'Sora',sans-serif;font-size:40px;font-weight:800;color:rgba(255,255,255,0.06);line-height:1;padding-top:4px}
+.as-left h3{font-size:20px;margin-bottom:10px}
+.as-left p{font-size:14px;color:var(--muted);line-height:1.75}
+.as-features{list-style:none}
+.as-features li{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--text);padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.04)}
+.as-features li::before{content:'→';color:var(--orange);flex-shrink:0}
+.as-features li:last-child{border:none}
+.providers-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.provider-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:24px 16px;text-align:center;transition:all var(--transition)}
+.provider-card:hover{border-color:rgba(232,78,27,0.3);transform:translateY(-3px)}
+.provider-icon{font-size:28px;margin-bottom:10px;display:block}
+.provider-card h4{font-size:13px;color:var(--white);margin-bottom:4px}
+.provider-card p{font-size:11px;color:var(--muted)}
+@media(max-width:1024px){.kpi-row{grid-template-columns:repeat(2,1fr)}.providers-grid{grid-template-columns:repeat(3,1fr)}.as-item{grid-template-columns:1fr;gap:16px}.as-num{display:none}}
+@media(max-width:768px){.use-case-grid{grid-template-columns:1fr}.providers-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div id="announce-bar"></div>
+<div id="site-header-placeholder"></div>
+
+<div class="page-banner">
+  <div class="container">
+    <div class="breadcrumb"><a href="../../es/index.html">Inicio</a><span>›</span><span>Analítica Empresarial</span></div>
+    <div class="eyebrow">Inteligencia de Datos</div>
+    <h1>Consultoría en <span style="color:var(--orange)">Analítica</span><br>Empresarial</h1>
+    <p style="color:var(--muted);max-width:600px;font-size:17px;margin-top:16px;font-weight:300;">Ayudamos a las organizaciones a aprovechar sus datos para mejorar la toma de decisiones, la eficiencia operacional y el crecimiento estratégico, transformando datos crudos en perspectivas accionables.</p>
+    <div style="margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;">
+      <a href="contact.html" class="btn btn-primary">Comenzar con Estrategia de Datos</a>
+      <a href="#services" class="btn btn-secondary">Explorar Servicios ↓</a>
+    </div>
+  </div>
+</div>
+
+<div style="background:var(--surface);border-bottom:1px solid var(--border);padding:32px 0;">
+  <div class="container">
+    <div class="kpi-row">
+      <div class="kpi-card reveal"><div class="kpi-val">6</div><div class="kpi-lbl">Áreas de Servicio Analítico</div></div>
+      <div class="kpi-card reveal reveal-delay-1"><div class="kpi-val">3×</div><div class="kpi-lbl">Ciclos de Decisión más Rápidos</div></div>
+      <div class="kpi-card reveal reveal-delay-2"><div class="kpi-val">IA</div><div class="kpi-lbl">Perspectivas Potenciadas</div></div>
+      <div class="kpi-card reveal reveal-delay-3"><div class="kpi-val">ROI</div><div class="kpi-lbl">Implementaciones Orientadas</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- DESCRIPCIÓN -->
+<section class="section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 420px;gap:64px;align-items:center;" class="reveal">
+      <div>
+        <div class="eyebrow">Panorama General</div>
+        <h2>Del Dato Crudo a la <span class="text-orange">Acción Estratégica</span></h2>
+        <p style="font-size:16px;color:var(--text);line-height:1.8;margin:20px 0 16px;">La consultoría en analítica empresarial habilita a las organizaciones para aprovechar sus datos y mejorar la toma de decisiones, la eficiencia operacional y el crecimiento estratégico. Nuestros servicios abarcan estrategia de datos, implementación de plataformas de analítica incluyendo IA y ML, visualización de datos y gestión del desempeño en departamentos de marketing, finanzas y operaciones.</p>
+        <p style="font-size:15px;color:var(--muted);line-height:1.8;">Trabajamos con los clientes para construir capacidades de datos sostenibles, no solo entregar un tablero. Cada compromiso incluye transferencia de conocimiento para que su equipo opere el entorno de analítica de forma independiente.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:24px;display:flex;gap:16px;align-items:flex-start;border-left:3px solid var(--orange);">
+          <span style="font-size:24px;">📈</span><div><h4 style="margin-bottom:4px;">Analítica de Marketing</h4><p style="font-size:13px;color:var(--muted);">Análisis del comportamiento del cliente para incrementar ventas y optimizar la inversión en campañas.</p></div>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:24px;display:flex;gap:16px;align-items:flex-start;border-left:3px solid var(--blue-mid);">
+          <span style="font-size:24px;">💰</span><div><h4 style="margin-bottom:4px;">Planificación Financiera</h4><p style="font-size:13px;color:var(--muted);">Anticipe riesgos y optimice sistemas financieros mediante modelado predictivo.</p></div>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:24px;display:flex;gap:16px;align-items:flex-start;border-left:3px solid #22c55e;">
+          <span style="font-size:24px;">⚡</span><div><h4 style="margin-bottom:4px;">Optimización del Rendimiento</h4><p style="font-size:13px;color:var(--muted);">Mejore la eficiencia operacional e identifique los factores que impactan la rentabilidad.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SERVICIOS PRINCIPALES -->
+<section class="section section--alt" id="services">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:52px;">
+      <div class="eyebrow">Servicios Principales</div>
+      <h2>Capacidades de <span class="text-orange">Analítica</span></h2>
+    </div>
+    <div class="analytics-services">
+      <div class="as-item reveal" id="strategy">
+        <div class="as-num">01</div>
+        <div class="as-left"><h3>🗂️ Estrategia y Planificación de Datos</h3><p>Desarrollamos estrategias de datos listas para IA, marcos de gobernanza y hojas de ruta de analítica que alinean sus inversiones en datos con las prioridades del negocio.</p></div>
+        <ul class="as-features"><li>Estrategia de IA y marcos de gobernanza de datos</li><li>Evaluación de madurez analítica</li><li>Arquitectura de datos y selección de plataforma</li><li>Programas de gestión de calidad de datos</li><li>Configuración de COE (Centro de Excelencia) de Analítica</li></ul>
+      </div>
+      <div class="as-item reveal">
+        <div class="as-num">02</div>
+        <div class="as-left"><h3>🔗 Implementación e Integración de Datos</h3><p>Construimos y migramos plataformas de datos, integrando fuentes dispares en entornos unificados y listos para analítica. Manejamos el ciclo completo de ingeniería de datos.</p></div>
+        <ul class="as-features"><li>Implementación de data warehouse y data lake</li><li>Desarrollo de pipelines ETL/ELT</li><li>Integración de herramientas BI (Power BI, Tableau, Looker)</li><li>Desarrollo de conectores API y de datos</li><li>Migración de datos legados</li></ul>
+      </div>
+      <div class="as-item reveal" id="ai">
+        <div class="as-num">03</div>
+        <div class="as-left"><h3>🤖 Analítica Avanzada e Inteligencia Artificial</h3><p>Aplicamos modelado predictivo, machine learning y dashboards potenciados por IA para ayudar a las organizaciones a pronosticar demanda, detectar anomalías y descubrir perspectivas que el reporte tradicional no revela.</p></div>
+        <ul class="as-features"><li>Analítica predictiva y prescriptiva</li><li>Desarrollo de modelos de machine learning</li><li>Procesamiento de lenguaje natural (NLP)</li><li>Dashboards de pronóstico potenciados por IA</li><li>Pipelines de monitoreo y reentrenamiento de modelos</li></ul>
+      </div>
+      <div class="as-item reveal" id="visualization">
+        <div class="as-num">04</div>
+        <div class="as-left"><h3>📊 Visualización de Datos y Reportes</h3><p>Creamos dashboards ejecutivos, reportes operacionales y entornos de analítica de autoservicio que rastrean KPIs, indicadores financieros y efectividad de marketing. Nuestras visualizaciones están diseñadas para la claridad y la acción.</p></div>
+        <ul class="as-features"><li>Dashboards ejecutivos de KPI</li><li>Reportes de desempeño financiero</li><li>Dashboards de atribución de marketing</li><li>Configuración de portal BI de autoservicio</li><li>Reportes optimizados para dispositivos móviles</li></ul>
+      </div>
+      <div class="as-item reveal" id="operational">
+        <div class="as-num">05</div>
+        <div class="as-left"><h3>🏭 Analítica Operacional y Funcional</h3><p>Aplicamos analítica para optimizar funciones de negocio clave: gestión de personal, inventario, cadena de suministro y operaciones con clientes. Estos proyectos conectan datos directamente a decisiones operacionales y ganancias de eficiencia medibles.</p></div>
+        <ul class="as-features"><li>Analítica de cadena de suministro e inventario</li><li>Analítica y planificación de personal</li><li>Analítica del journey del cliente</li><li>Seguimiento de KPI operacionales</li><li>Marcos de análisis de causa raíz</li></ul>
+      </div>
+      <div class="as-item reveal">
+        <div class="as-num">06</div>
+        <div class="as-left"><h3>🎓 Asesoría y Capacitación</h3><p>Ofrecemos asesoría experta, capacitación práctica y soporte continuo para acelerar la adopción de datos en su organización. Incluye programas de alfabetización de datos para usuarios de negocio y capacitación técnica para equipos de datos.</p></div>
+        <ul class="as-features"><li>Talleres de alfabetización de datos</li><li>Capacitación en herramientas analíticas (Power BI, Tableau)</li><li>Contratos de asesoría continua</li><li>Coaching para equipos de analítica</li><li>Documentación y transferencia de conocimiento</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASOS DE USO -->
+<section class="section">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:48px;text-align:center;">
+      <div class="eyebrow" style="justify-content:center;">Casos de Uso</div>
+      <h2>Aplicaciones <span class="text-orange">Comunes</span></h2>
+      <p style="color:var(--muted);max-width:500px;margin:16px auto 0;">Implementaciones de analítica que entregan resultados de negocio medibles.</p>
+    </div>
+    <div class="use-case-grid">
+      <div class="uc-card orange reveal"><span class="uc-icon">📣</span><h3>Analítica de Marketing</h3><p>Analice embudos de adquisición de clientes, atribución de campañas y comportamiento por segmento para aumentar la conversión y reducir el costo por adquisición.</p><span class="uc-tag">→ Crecimiento de Ingresos</span></div>
+      <div class="uc-card blue reveal reveal-delay-1"><span class="uc-icon">💹</span><h3>Planificación Financiera y Análisis</h3><p>Anticipe riesgos financieros mediante modelado predictivo de flujo de caja, optimice la asignación presupuestaria con análisis de escenarios y automatice reportes financieros.</p><span class="uc-tag" style="color:var(--blue-mid)">→ Reducción de Riesgo</span></div>
+      <div class="uc-card green reveal reveal-delay-2"><span class="uc-icon">⚡</span><h3>Rendimiento Operacional</h3><p>Identifique cuellos de botella de eficiencia, reduzca el desperdicio operacional y construya dashboards en tiempo real que muestren los indicadores líderes de rentabilidad.</p><span class="uc-tag" style="color:#4ADE80">→ Reducción de Costos</span></div>
+      <div class="uc-card orange reveal"><span class="uc-icon">🛒</span><h3>Inteligencia de Ventas</h3><p>Construya analítica de pipeline, análisis de victorias y pérdidas, y dashboards de rendimiento territorial que den a los líderes de ventas la visibilidad para pronosticar con precisión.</p><span class="uc-tag">→ Velocidad de Ventas</span></div>
+      <div class="uc-card blue reveal reveal-delay-1"><span class="uc-icon">📦</span><h3>Optimización de Cadena de Suministro</h3><p>Pronóstico de demanda, optimización de inventario y analítica del rendimiento de proveedores que reducen costos de mantenimiento y mejoran las tasas de cumplimiento.</p><span class="uc-tag" style="color:var(--blue-mid)">→ Eficiencia en Inventario</span></div>
+      <div class="uc-card green reveal reveal-delay-2"><span class="uc-icon">👥</span><h3>Analítica de Experiencia del Cliente</h3><p>Mida NPS, CSAT y puntajes de salud del cliente en tiempo real. Prediga la pérdida de clientes, identifique oportunidades de expansión y mapee el journey completo del cliente.</p><span class="uc-tag" style="color:#4ADE80">→ Retención de Clientes</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PLATAFORMAS -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:40px;">
+      <div class="eyebrow">Ecosistema y Herramientas</div>
+      <h2>Plataformas y <span class="text-orange">Socios</span></h2>
+      <p style="color:var(--muted);max-width:520px;margin-top:12px;">Trabajamos con los mejores proveedores de analítica y mantenemos relaciones con las principales firmas del espacio de consultoría de datos.</p>
+    </div>
+    <div class="providers-grid reveal">
+      <div class="provider-card"><span class="provider-icon">📊</span><h4>Power BI</h4><p>Microsoft BI</p></div>
+      <div class="provider-card"><span class="provider-icon">📈</span><h4>Tableau</h4><p>Salesforce</p></div>
+      <div class="provider-card"><span class="provider-icon">🔍</span><h4>Looker</h4><p>Google Cloud</p></div>
+      <div class="provider-card"><span class="provider-icon">❄️</span><h4>Snowflake</h4><p>Data Cloud</p></div>
+      <div class="provider-card"><span class="provider-icon">🧱</span><h4>dbt</h4><p>Data Build Tool</p></div>
+      <div class="provider-card"><span class="provider-icon">⚡</span><h4>Databricks</h4><p>Apache Spark</p></div>
+      <div class="provider-card"><span class="provider-icon">🤖</span><h4>Azure ML</h4><p>Microsoft</p></div>
+      <div class="provider-card"><span class="provider-icon">🌩️</span><h4>BigQuery</h4><p>Google Cloud</p></div>
+      <div class="provider-card"><span class="provider-icon">📦</span><h4>Redshift</h4><p>Amazon AWS</p></div>
+      <div class="provider-card"><span class="provider-icon">🔗</span><h4>Fivetran</h4><p>Movimiento de Datos</p></div>
+    </div>
+    <div style="margin-top:32px;padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:8px;" class="reveal">
+      <p style="font-size:13px;color:var(--muted);">Los principales socios de consultoría analítica en el ecosistema más amplio incluyen <strong style="color:var(--text)">Blast Analytics</strong>, <strong style="color:var(--text)">Analytics8</strong>, <strong style="color:var(--text)">BDO Digital</strong>, <strong style="color:var(--text)">EY</strong> y <strong style="color:var(--text)">Pythian</strong>. Global MFT trabaja junto a estas firmas o en complemento según la escala y necesidad del cliente.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding:72px 0;background:var(--surface);border-top:1px solid var(--border);">
+  <div class="container" style="text-align:center;">
+    <div class="reveal">
+      <h2>¿Listo para <span class="text-orange">Desbloquear sus Datos?</span></h2>
+      <p style="color:var(--muted);max-width:480px;margin:16px auto 36px;">Comience con una evaluación de madurez de datos y salga con una hoja de ruta de analítica clara para su organización.</p>
+      <a href="contact.html" class="btn btn-primary" style="margin:0 auto;">Agendar Consulta de Datos</a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-placeholder"></div>
+<script src="../../js/nav.js"></script>
+<script>GMFTNav.inject('../../', 'es');</script>
+<script src="../../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Analytics Consulting — Global MFT</title>
+<meta name="description" content="Data strategy, AI/ML implementation, BI dashboards, and business analytics consulting from Global MFT.">
+<link rel="stylesheet" href="../css/global.css">
+<style>
+/* Analytics hero strip */
+.analytics-hero-strip {
+  background: linear-gradient(90deg, var(--dark2) 0%, var(--surface2) 50%, var(--dark2) 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 96px 0 56px;
+}
+
+/* KPI cards */
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 56px;
+}
+.kpi-card {
+  background: var(--dark2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+  transition: all var(--transition);
+}
+.kpi-card:hover { border-color: rgba(232,78,27,0.3); transform: translateY(-3px); }
+.kpi-val {
+  font-family: 'Sora', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--orange);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.kpi-lbl { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+
+/* Use case grid */
+.use-case-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.uc-card {
+  padding: 32px;
+  background: var(--dark2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.uc-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  transition: background var(--transition);
+}
+.uc-card.orange::before { background: var(--orange); }
+.uc-card.blue::before   { background: var(--blue-mid); }
+.uc-card.green::before  { background: #22c55e; }
+.uc-card:hover { transform: translateY(-4px); box-shadow: 0 20px 48px rgba(0,0,0,0.45); }
+.uc-icon { font-size: 32px; margin-bottom: 16px; display: block; }
+.uc-card h3 { font-size: 18px; margin-bottom: 10px; }
+.uc-card p { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 16px; }
+.uc-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+/* Services list */
+.analytics-services { display: flex; flex-direction: column; gap: 0; }
+.as-item {
+  display: grid;
+  grid-template-columns: 64px 1fr 1fr;
+  gap: 32px;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+.as-item:last-child { border-bottom: none; }
+.as-num {
+  font-family: 'Sora', sans-serif;
+  font-size: 40px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.06);
+  line-height: 1;
+  padding-top: 4px;
+}
+.as-left h3 { font-size: 20px; margin-bottom: 10px; }
+.as-left p { font-size: 14px; color: var(--muted); line-height: 1.75; }
+.as-features { list-style: none; }
+.as-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 13px;
+  color: var(--text);
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.as-features li::before { content: '→'; color: var(--orange); flex-shrink: 0; }
+.as-features li:last-child { border: none; }
+
+/* Providers */
+.providers-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+.provider-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px 16px;
+  text-align: center;
+  transition: all var(--transition);
+  cursor: default;
+}
+.provider-card:hover { border-color: rgba(232,78,27,0.3); transform: translateY(-3px); }
+.provider-icon { font-size: 28px; margin-bottom: 10px; display: block; }
+.provider-card h4 { font-size: 13px; color: var(--white); margin-bottom: 4px; }
+.provider-card p { font-size: 11px; color: var(--muted); }
+
+@media (max-width:1024px) {
+  .kpi-row { grid-template-columns: repeat(2,1fr); }
+  .providers-grid { grid-template-columns: repeat(3,1fr); }
+  .as-item { grid-template-columns: 1fr; gap: 16px; }
+  .as-num { display: none; }
+}
+@media (max-width:768px) {
+  .use-case-grid { grid-template-columns: 1fr; }
+  .providers-grid { grid-template-columns: repeat(2,1fr); }
+}
+</style>
+</head>
+<body>
+
+<div id="announce-bar"></div>
+<div id="site-header-placeholder"></div>
+
+<!-- Page Banner -->
+<div class="page-banner">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a><span>›</span><span>Business Analytics</span>
+    </div>
+    <div class="eyebrow">Data Intelligence</div>
+    <h1>Business <span style="color:var(--orange)">Analytics</span><br>Consulting</h1>
+    <p style="color:var(--muted);max-width:600px;font-size:17px;margin-top:16px;font-weight:300;">We enable organizations to leverage data for improved decision-making, operational efficiency, and strategic growth — transforming raw data into actionable business insights.</p>
+    <div style="margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;">
+      <a href="contact.html" class="btn btn-primary">Start with Data Strategy</a>
+      <a href="#services" class="btn btn-secondary">Explore Services ↓</a>
+    </div>
+  </div>
+</div>
+
+<!-- KPI Strip -->
+<div style="background:var(--surface);border-bottom:1px solid var(--border);padding:32px 0;">
+  <div class="container">
+    <div class="kpi-row">
+      <div class="kpi-card reveal">
+        <div class="kpi-val">6</div>
+        <div class="kpi-lbl">Analytics Service Areas</div>
+      </div>
+      <div class="kpi-card reveal reveal-delay-1">
+        <div class="kpi-val">3×</div>
+        <div class="kpi-lbl">Faster Decision Cycles</div>
+      </div>
+      <div class="kpi-card reveal reveal-delay-2">
+        <div class="kpi-val">AI</div>
+        <div class="kpi-lbl">Powered Insights</div>
+      </div>
+      <div class="kpi-card reveal reveal-delay-3">
+        <div class="kpi-val">ROI</div>
+        <div class="kpi-lbl">Driven Implementations</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ WHAT IS BUSINESS ANALYTICS CONSULTING ═══ -->
+<section class="section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 420px;gap:64px;align-items:center;" class="reveal">
+      <div>
+        <div class="eyebrow">Overview</div>
+        <h2>From Raw Data to<br><span class="text-orange">Strategic Action</span></h2>
+        <p style="font-size:16px;color:var(--text);line-height:1.8;margin:20px 0 16px;">Business analytics consulting enables organizations to leverage data for improved decision-making, operational efficiency, and strategic growth. Our services span data strategy, implementation of analytics platforms including AI and ML, data visualization, and performance management across marketing, finance, and operations departments.</p>
+        <p style="font-size:15px;color:var(--muted);line-height:1.8;">We work with clients to build sustainable data capabilities — not just deliver a dashboard. Every engagement includes knowledge transfer and enablement so your team can operate the analytics environment independently.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:24px;display:flex;gap:16px;align-items:flex-start;border-left:3px solid var(--orange);">
+          <span style="font-size:24px;">📈</span>
+          <div><h4 style="margin-bottom:4px;">Marketing Analytics</h4><p style="font-size:13px;color:var(--muted);">Analyzing customer behavior to boost sales and optimize campaign spend.</p></div>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:24px;display:flex;gap:16px;align-items:flex-start;border-left:3px solid var(--blue-mid);">
+          <span style="font-size:24px;">💰</span>
+          <div><h4 style="margin-bottom:4px;">Financial Planning</h4><p style="font-size:13px;color:var(--muted);">Anticipating risks and optimizing financial systems through predictive modeling.</p></div>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:24px;display:flex;gap:16px;align-items:flex-start;border-left:3px solid #22c55e;">
+          <span style="font-size:24px;">⚡</span>
+          <div><h4 style="margin-bottom:4px;">Performance Optimization</h4><p style="font-size:13px;color:var(--muted);">Improving operational efficiency and identifying profit impact factors.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ CORE SERVICES ═══ -->
+<section class="section section--alt" id="services">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:52px;">
+      <div class="eyebrow">Core Services</div>
+      <h2>Analytics Consulting <span class="text-orange">Capabilities</span></h2>
+    </div>
+    <div class="analytics-services">
+
+      <div class="as-item reveal" id="strategy">
+        <div class="as-num">01</div>
+        <div class="as-left">
+          <h3>🗂️ Data Strategy &amp; Planning</h3>
+          <p>We develop AI-ready data strategies, governance frameworks, and analytics roadmaps that align your data investments with business priorities. This includes defining your data ownership model, quality standards, and the architecture needed to support advanced analytics.</p>
+        </div>
+        <ul class="as-features">
+          <li>AI strategy &amp; data governance frameworks</li>
+          <li>Analytics maturity assessment</li>
+          <li>Data architecture &amp; platform selection</li>
+          <li>Data quality management programs</li>
+          <li>Analytics COE (Center of Excellence) setup</li>
+        </ul>
+      </div>
+
+      <div class="as-item reveal">
+        <div class="as-num">02</div>
+        <div class="as-left">
+          <h3>🔗 Data Implementation &amp; Integration</h3>
+          <p>We build and migrate data platforms, integrating disparate data sources into unified, analytics-ready environments. Whether standing up a modern data warehouse or connecting your ERP to a BI tool, we handle the full data engineering lifecycle.</p>
+        </div>
+        <ul class="as-features">
+          <li>Data warehouse &amp; data lake implementation</li>
+          <li>ETL/ELT pipeline development</li>
+          <li>BI tool integration (Power BI, Tableau, Looker)</li>
+          <li>API and data connector development</li>
+          <li>Legacy data migration</li>
+        </ul>
+      </div>
+
+      <div class="as-item reveal" id="ai">
+        <div class="as-num">03</div>
+        <div class="as-left">
+          <h3>🤖 Advanced Analytics &amp; AI</h3>
+          <p>We apply predictive modeling, machine learning, and AI-powered dashboards to help organizations forecast demand, detect anomalies, and surface insights that traditional reporting misses. We deploy models that are explainable, auditable, and maintainable by your team.</p>
+        </div>
+        <ul class="as-features">
+          <li>Predictive &amp; prescriptive analytics</li>
+          <li>Machine learning model development</li>
+          <li>Natural language processing (NLP)</li>
+          <li>AI-powered forecasting dashboards</li>
+          <li>Model monitoring &amp; retraining pipelines</li>
+        </ul>
+      </div>
+
+      <div class="as-item reveal" id="visualization">
+        <div class="as-num">04</div>
+        <div class="as-left">
+          <h3>📊 Data Visualization &amp; Reporting</h3>
+          <p>We create executive dashboards, operational reports, and self-service analytics environments that track KPIs, financial indicators, and marketing effectiveness. Our visualizations are designed for clarity and action — not just aesthetics.</p>
+        </div>
+        <ul class="as-features">
+          <li>Executive KPI dashboards</li>
+          <li>Financial performance reporting</li>
+          <li>Marketing attribution dashboards</li>
+          <li>Self-service BI portal setup</li>
+          <li>Mobile-ready reporting</li>
+        </ul>
+      </div>
+
+      <div class="as-item reveal" id="operational">
+        <div class="as-num">05</div>
+        <div class="as-left">
+          <h3>🏭 Operational &amp; Functional Analytics</h3>
+          <p>We apply analytics to optimize core business functions — workforce management, inventory, supply chain, and customer operations. These engagements connect data directly to operational decisions and measurable efficiency gains.</p>
+        </div>
+        <ul class="as-features">
+          <li>Supply chain &amp; inventory analytics</li>
+          <li>Workforce analytics &amp; planning</li>
+          <li>Customer journey analytics</li>
+          <li>Operational KPI tracking</li>
+          <li>Root cause analysis frameworks</li>
+        </ul>
+      </div>
+
+      <div class="as-item reveal">
+        <div class="as-num">06</div>
+        <div class="as-left">
+          <h3>🎓 Advisory &amp; Training</h3>
+          <p>We offer expert advisory, hands-on training, and ongoing support to accelerate data adoption across your organization. This includes data literacy programs for business users and technical training for data teams.</p>
+        </div>
+        <ul class="as-features">
+          <li>Data literacy workshops</li>
+          <li>Analytics tool training (Power BI, Tableau)</li>
+          <li>Ongoing advisory retainers</li>
+          <li>Analytics team coaching</li>
+          <li>Documentation &amp; knowledge transfer</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ USE CASES ═══ -->
+<section class="section">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:48px;text-align:center;">
+      <div class="eyebrow" style="justify-content:center;">Use Cases</div>
+      <h2>Common <span class="text-orange">Applications</span></h2>
+      <p style="color:var(--muted);max-width:500px;margin:16px auto 0;">Real-world analytics implementations that deliver measurable business outcomes.</p>
+    </div>
+    <div class="use-case-grid">
+      <div class="uc-card orange reveal">
+        <span class="uc-icon">📣</span>
+        <h3>Marketing Analytics</h3>
+        <p>Analyze customer acquisition funnels, campaign attribution, and segment-level behavior to boost sales conversion and reduce cost-per-acquisition. Build unified customer profiles from multi-channel data.</p>
+        <span class="uc-tag">→ Revenue Growth</span>
+      </div>
+      <div class="uc-card blue reveal reveal-delay-1">
+        <span class="uc-icon">💹</span>
+        <h3>Financial Planning &amp; Analysis</h3>
+        <p>Anticipate financial risks through predictive cash flow modeling, optimize budget allocation using scenario analysis, and automate financial reporting to accelerate close cycles.</p>
+        <span class="uc-tag" style="color:var(--blue-mid)">→ Risk Reduction</span>
+      </div>
+      <div class="uc-card green reveal reveal-delay-2">
+        <span class="uc-icon">⚡</span>
+        <h3>Operations Performance</h3>
+        <p>Identify efficiency bottlenecks, reduce operational waste, and build real-time operational dashboards that surface the leading indicators of profitability and quality before they become problems.</p>
+        <span class="uc-tag" style="color:#4ADE80">→ Cost Reduction</span>
+      </div>
+      <div class="uc-card orange reveal">
+        <span class="uc-icon">🛒</span>
+        <h3>Sales Intelligence</h3>
+        <p>Build pipeline analytics, win-loss analysis, and territory performance dashboards that give sales leaders the visibility needed to forecast accurately and coach effectively.</p>
+        <span class="uc-tag">→ Sales Velocity</span>
+      </div>
+      <div class="uc-card blue reveal reveal-delay-1">
+        <span class="uc-icon">📦</span>
+        <h3>Supply Chain Optimization</h3>
+        <p>Demand forecasting, inventory optimization, and supplier performance analytics that reduce carrying costs, improve fill rates, and build supply chain resilience.</p>
+        <span class="uc-tag" style="color:var(--blue-mid)">→ Inventory Efficiency</span>
+      </div>
+      <div class="uc-card green reveal reveal-delay-2">
+        <span class="uc-icon">👥</span>
+        <h3>Customer Experience Analytics</h3>
+        <p>Measure NPS, CSAT, and customer health scores in real time. Predict churn, identify expansion opportunities, and map the full customer journey across all touchpoints.</p>
+        <span class="uc-tag" style="color:#4ADE80">→ Retention Gains</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROVIDERS ═══ -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:40px;">
+      <div class="eyebrow">Ecosystem &amp; Tooling</div>
+      <h2>Platforms &amp; <span class="text-orange">Partners</span></h2>
+      <p style="color:var(--muted);max-width:520px;margin-top:12px;">We work with best-in-class analytics providers and maintain relationships with leading firms in the data consulting space.</p>
+    </div>
+    <div class="providers-grid reveal">
+      <div class="provider-card"><span class="provider-icon">📊</span><h4>Power BI</h4><p>Microsoft BI</p></div>
+      <div class="provider-card"><span class="provider-icon">📈</span><h4>Tableau</h4><p>Salesforce</p></div>
+      <div class="provider-card"><span class="provider-icon">🔍</span><h4>Looker</h4><p>Google Cloud</p></div>
+      <div class="provider-card"><span class="provider-icon">❄️</span><h4>Snowflake</h4><p>Data Cloud</p></div>
+      <div class="provider-card"><span class="provider-icon">🧱</span><h4>dbt</h4><p>Data Build Tool</p></div>
+      <div class="provider-card"><span class="provider-icon">⚡</span><h4>Databricks</h4><p>Apache Spark</p></div>
+      <div class="provider-card"><span class="provider-icon">🤖</span><h4>Azure ML</h4><p>Microsoft</p></div>
+      <div class="provider-card"><span class="provider-icon">🌩️</span><h4>BigQuery</h4><p>Google Cloud</p></div>
+      <div class="provider-card"><span class="provider-icon">📦</span><h4>Redshift</h4><p>Amazon AWS</p></div>
+      <div class="provider-card"><span class="provider-icon">🔗</span><h4>Fivetran</h4><p>Data Movement</p></div>
+    </div>
+    <div style="margin-top:32px;padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:8px;" class="reveal">
+      <p style="font-size:13px;color:var(--muted);">Key analytics consulting partners in the broader ecosystem include <strong style="color:var(--text)">Blast Analytics</strong>, <strong style="color:var(--text)">Analytics8</strong>, <strong style="color:var(--text)">BDO Digital</strong>, <strong style="color:var(--text)">EY</strong>, and <strong style="color:var(--text)">Pythian</strong>. Global MFT works alongside or in complement to these firms depending on client scale and need.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding:72px 0;background:var(--surface);border-top:1px solid var(--border);">
+  <div class="container" style="text-align:center;">
+    <div class="reveal">
+      <h2>Ready to <span class="text-orange">Unlock Your Data?</span></h2>
+      <p style="color:var(--muted);max-width:480px;margin:16px auto 36px;">Start with a data maturity assessment and walk away with a clear analytics roadmap for your organization.</p>
+      <a href="contact.html" class="btn btn-primary" style="margin:0 auto;">Schedule a Data Consultation</a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-placeholder"></div>
+<script src="../js/nav.js"></script>
+<script>GMFTNav.inject('../');</script>
+<script src="../js/main.js"></script>
+</body>
+</html>

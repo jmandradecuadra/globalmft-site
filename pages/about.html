@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Global MFT — Business Technology Consulting</title>
+<meta name="description" content="About Global MFT — a CobraNext company delivering strategic technology consulting, cloud, cybersecurity, analytics, and ISV solutions.">
+<link rel="stylesheet" href="../css/global.css">
+<style>
+.about-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.pillar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+.pillar {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  border-left: 3px solid var(--orange);
+  transition: all var(--transition);
+}
+.pillar.blue { border-left-color: var(--blue-mid); }
+.pillar:hover { background: var(--surface2); transform: translateX(4px); }
+.pillar h4 { font-size: 14px; color: var(--white); margin-bottom: 4px; }
+.pillar p  { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+.cobranext-box {
+  background: var(--surface);
+  border: 1px solid rgba(232,78,27,0.2);
+  border-radius: 10px;
+  padding: 32px;
+  margin-top: 32px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.cobranext-box h4 { font-size: 16px; color: var(--white); margin-bottom: 8px; }
+.cobranext-box p  { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+.values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.value-card {
+  background: var(--dark2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 32px;
+  text-align: center;
+  transition: all var(--transition);
+}
+.value-card:hover { transform: translateY(-4px); border-color: rgba(232,78,27,0.25); }
+.value-card .icon { font-size: 36px; margin-bottom: 16px; display: block; }
+.value-card h3 { font-size: 18px; margin-bottom: 10px; }
+.value-card p  { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+.engage-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.er-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 32px;
+  position: relative;
+}
+.er-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  border-radius: 8px 8px 0 0;
+  background: var(--orange);
+}
+.er-card.b::before { background: var(--blue-mid); }
+.er-card.g::before { background: #22c55e; }
+.er-card h3 { font-size: 18px; margin-bottom: 10px; }
+.er-card p  { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+@media (max-width:1024px) {
+  .about-intro { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: 1fr 1fr; }
+  .engage-row  { grid-template-columns: 1fr; }
+}
+@media (max-width:768px) {
+  .pillar-grid { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div id="announce-bar"></div>
+<div id="site-header-placeholder"></div>
+
+<!-- Banner -->
+<div class="page-banner">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a><span>›</span><span>About</span>
+    </div>
+    <div class="eyebrow">Our Story</div>
+    <h1>About <span style="color:var(--orange)">Global MFT</span></h1>
+    <p style="color:var(--muted);max-width:600px;font-size:17px;margin-top:16px;">A business technology consultancy at the intersection of Marketing, Finance, and Telecom — helping organizations align technology investments with business outcomes.</p>
+  </div>
+</div>
+
+<!-- ═══ WHO WE ARE ═══ -->
+<section class="section">
+  <div class="container">
+    <div class="about-intro">
+      <div class="reveal">
+        <div class="eyebrow">Who We Are</div>
+        <h2>A Trusted Technology <span class="text-orange">Partner</span></h2>
+        <p style="font-size:16px;color:var(--text);line-height:1.8;margin:20px 0 16px;">Global MFT is a full-spectrum business technology consultancy operating under the CobraNext umbrella. We sit at the intersection of marketing, finance, and telecommunications — three disciplines that together define how modern businesses grow, operate, and communicate.</p>
+        <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:16px;">We help organizations modernize their technology stack, align IT investment with strategic objectives, and unlock new revenue streams through innovative ISV solutions. Our vendor-agnostic philosophy means every recommendation is driven by what best serves your business — not vendor incentives.</p>
+        <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:24px;">From startups seeking their first cloud architecture to enterprises requiring complex system integrations, we deliver measurable, traceable results with clear accountability.</p>
+
+        <div class="pillar-grid">
+          <div class="pillar reveal">
+            <span style="font-size:22px;">📡</span>
+            <div><h4>Telecom Expertise</h4><p>Deep roots in telecommunications infrastructure, carrier services, and next-gen connectivity.</p></div>
+          </div>
+          <div class="pillar blue reveal reveal-delay-1">
+            <span style="font-size:22px;">💰</span>
+            <div><h4>Financial Technology</h4><p>Payment processing, FinTech compliance, and financial system integrations.</p></div>
+          </div>
+          <div class="pillar reveal reveal-delay-2">
+            <span style="font-size:22px;">📣</span>
+            <div><h4>Marketing Platforms</h4><p>Meta Business, WhatsApp Business API, and emerging social commerce channels.</p></div>
+          </div>
+          <div class="pillar blue reveal reveal-delay-3">
+            <span style="font-size:22px;">🔒</span>
+            <div><h4>Compliance-First</h4><p>All engagements built around regulatory compliance from day one.</p></div>
+          </div>
+        </div>
+
+        <div class="cobranext-box reveal">
+          <span style="font-size:32px;flex-shrink:0;">🏢</span>
+          <div>
+            <h4>CobraNext Ecosystem</h4>
+            <p>Global MFT operates within the CobraNext ecosystem of companies. This domain (globalmft.cobranext.com) serves as the primary institutional reference while globalmft.us is finalized. Future CobraNext properties include the IXM Portal platform and additional ISV services built on enterprise-grade, compliant infrastructure.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <!-- Reference site note -->
+        <div style="background:rgba(30,92,179,0.1);border:1px solid rgba(30,92,179,0.25);border-radius:8px;padding:24px;margin-bottom:24px;">
+          <h4 style="font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#7EB0FF;margin-bottom:8px;">Institutional Reference Site</h4>
+          <p style="font-size:13px;color:var(--muted);line-height:1.7;">This site serves as the official institutional reference for Global MFT during business verification with Meta, payment processors, telecom carriers, and enterprise partners. Primary domain <strong style="color:var(--text)">globalmft.us</strong> is pending.</p>
+        </div>
+
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:28px;">
+          <h4 style="font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:20px;">Service Footprint</h4>
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:12px;border-bottom:1px solid var(--border);">
+              <span style="font-size:13px;color:var(--text);">Consulting Services</span>
+              <span style="font-family:'Sora',sans-serif;font-size:20px;font-weight:800;color:var(--orange);">9+</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:12px;border-bottom:1px solid var(--border);">
+              <span style="font-size:13px;color:var(--text);">ISV Products</span>
+              <span style="font-family:'Sora',sans-serif;font-size:20px;font-weight:800;color:var(--orange);">2</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:12px;border-bottom:1px solid var(--border);">
+              <span style="font-size:13px;color:var(--text);">Cloud Platforms Supported</span>
+              <span style="font-family:'Sora',sans-serif;font-size:20px;font-weight:800;color:var(--orange);">4+</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:12px;border-bottom:1px solid var(--border);">
+              <span style="font-size:13px;color:var(--text);">Compliance Frameworks</span>
+              <span style="font-family:'Sora',sans-serif;font-size:20px;font-weight:800;color:var(--orange);">6+</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:13px;color:var(--text);">Vendor Lock-in</span>
+              <span style="font-family:'Sora',sans-serif;font-size:20px;font-weight:800;color:#4ADE80;">Zero</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ VALUES ═══ -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:52px;">
+      <div class="eyebrow" style="justify-content:center;">Our Principles</div>
+      <h2>What We <span class="text-orange">Stand For</span></h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card reveal">
+        <span class="icon">🎯</span>
+        <h3>Outcomes Over Activity</h3>
+        <p>We measure success by business results — not deliverable volume or billable hours. Every engagement includes clear, measurable outcome definitions from the start.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-1">
+        <span class="icon">🧭</span>
+        <h3>Vendor-Agnostic Advice</h3>
+        <p>We have no preferred vendor partnerships that create conflicts of interest. Our recommendations reflect what actually fits your requirements, team, and budget.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-2">
+        <span class="icon">⚖️</span>
+        <h3>Compliance Without Compromise</h3>
+        <p>We build compliance into every engagement from the start — not as an afterthought. This protects you from regulatory risk and ensures sustainable operations.</p>
+      </div>
+      <div class="value-card reveal">
+        <span class="icon">🔍</span>
+        <h3>Transparency</h3>
+        <p>Clear pricing, honest assessments, and direct communication — even when the answer isn't what clients want to hear. Trust requires honesty.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-1">
+        <span class="icon">🚀</span>
+        <h3>Bias Toward Action</h3>
+        <p>We move quickly and execute. Strategy without execution is worthless. Our engagements produce working outcomes, not only reports.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-2">
+        <span class="icon">🤝</span>
+        <h3>Long-Term Partnership</h3>
+        <p>We build relationships designed to last. Most of our clients engage us repeatedly because we align our success with theirs over the long run.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ENGAGEMENT MODELS ═══ -->
+<section class="section">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:48px;">
+      <div class="eyebrow">How We Work</div>
+      <h2>Engagement <span class="text-orange">Models</span></h2>
+      <p style="color:var(--muted);max-width:520px;margin-top:12px;">We work with companies of all sizes — from startups to enterprises — offering tailored advisory or acting as interim project leadership.</p>
+    </div>
+    <div class="engage-row">
+      <div class="er-card reveal">
+        <span style="font-size:36px;display:block;margin-bottom:16px;">🔭</span>
+        <h3>Strategic Advisory</h3>
+        <p>Ongoing retainer-based advisory covering technology strategy, vendor management, and executive decision support. Billed monthly with defined advisory hours and escalation paths.</p>
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--border);">
+          <p style="font-size:12px;color:var(--muted);">Ideal for: Growth-stage companies and SMBs seeking ongoing CTO-level guidance.</p>
+        </div>
+      </div>
+      <div class="er-card b reveal reveal-delay-1">
+        <span style="font-size:36px;display:block;margin-bottom:16px;">🏗️</span>
+        <h3>Project Delivery</h3>
+        <p>Scoped engagements for defined transformation initiatives — cloud migrations, security frameworks, analytics implementations — with clear milestones, deliverables, and payment gates.</p>
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--border);">
+          <p style="font-size:12px;color:var(--muted);">Ideal for: Organizations with a specific initiative that requires dedicated execution capacity.</p>
+        </div>
+      </div>
+      <div class="er-card g reveal reveal-delay-2">
+        <span style="font-size:36px;display:block;margin-bottom:16px;">👤</span>
+        <h3>Fractional Leadership</h3>
+        <p>Acting as interim CTO, CISO, or IT Director for organizations in transition. We provide senior-level leadership with hands-on delivery management and cross-functional coordination.</p>
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--border);">
+          <p style="font-size:12px;color:var(--muted);">Ideal for: Companies between technology leaders or scaling past their founding team's capacity.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding:72px 0;background:var(--surface);border-top:1px solid var(--border);">
+  <div class="container" style="text-align:center;">
+    <div class="reveal">
+      <h2>Let's Work <span class="text-orange">Together</span></h2>
+      <p style="color:var(--muted);max-width:460px;margin:16px auto 36px;">Reach out for a no-obligation conversation about your technology challenges and how we can help.</p>
+      <a href="contact.html" class="btn btn-primary">Contact Global MFT</a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-placeholder"></div>
+<script src="../js/nav.js"></script>
+<script>GMFTNav.inject('../');</script>
+<script src="../js/main.js"></script>
+</body>
+</html>

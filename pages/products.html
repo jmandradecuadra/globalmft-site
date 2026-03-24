@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ISV Products — Global MFT</title>
+<meta name="description" content="Zelle Verification Platform and IXM Portal — ISV software products from Global MFT for payment verification and multi-channel communications.">
+<link rel="stylesheet" href="../css/global.css">
+<style>
+.isv-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 52px;
+}
+.isv-card {
+  background: var(--dark2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition);
+}
+.isv-card:hover { transform: translateY(-4px); box-shadow: 0 24px 56px rgba(0,0,0,0.5); }
+.isv-card.zelle { border-top: 3px solid #22c55e; }
+.isv-card.ixm   { border-top: 3px solid var(--blue-mid); }
+.isv-card.zelle:hover { border-color: #22c55e rgba(34,197,94,0.3) rgba(34,197,94,0.3) rgba(34,197,94,0.3); }
+.isv-card.ixm:hover   { border-color: var(--blue-mid) rgba(30,92,179,0.3) rgba(30,92,179,0.3) rgba(30,92,179,0.3); }
+
+.isv-card h2 { font-size: 32px; margin: 20px 0 6px; }
+.isv-tagline { font-size: 13px; font-weight: 500; color: var(--orange); margin-bottom: 16px; }
+.isv-card > p { font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: 24px; }
+.isv-features { list-style: none; margin-bottom: 28px; }
+.isv-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text);
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.isv-features li::before { content: '→'; color: var(--orange); flex-shrink: 0; }
+.isv-features li:last-child { border: none; }
+
+.policy-box {
+  background: rgba(250,204,21,0.06);
+  border: 1px solid rgba(250,204,21,0.2);
+  border-radius: 6px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.policy-box p { font-size: 12.5px; color: #FCD34D; line-height: 1.65; margin: 0; }
+.policy-box a { color: #FCD34D; text-decoration: underline; }
+
+.how-it-works {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+}
+.how-it-works::before {
+  content: '';
+  position: absolute;
+  top: 36px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--orange), var(--blue-mid));
+  z-index: 0;
+}
+.hiw-step {
+  text-align: center;
+  padding: 0 16px;
+  position: relative;
+  z-index: 1;
+}
+.hiw-num {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Sora', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--orange);
+  margin: 0 auto 20px;
+}
+.hiw-step h4 { font-size: 14px; margin-bottom: 8px; }
+.hiw-step p  { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+.compliance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.compliance-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.compliance-item h4 { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+.compliance-item p  { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+@media (max-width:1024px) { .isv-hero { grid-template-columns:1fr; } }
+@media (max-width:768px)  {
+  .how-it-works { grid-template-columns: 1fr 1fr; gap: 28px; }
+  .how-it-works::before { display: none; }
+  .compliance-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div id="announce-bar"></div>
+<div id="site-header-placeholder"></div>
+
+<!-- Banner -->
+<div class="page-banner">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a><span>›</span><span>Products</span>
+    </div>
+    <div class="eyebrow">ISV Software</div>
+    <h1>Proprietary <span style="color:var(--orange)">Products</span></h1>
+    <p style="color:var(--muted);max-width:560px;font-size:17px;margin-top:16px;">Beyond consulting, Global MFT develops Independent Software Vendor (ISV) solutions addressing specific market gaps in payment verification and multi-channel business communications.</p>
+  </div>
+</div>
+
+<!-- ═══ ISV PRODUCT CARDS ═══ -->
+<section class="section">
+  <div class="container">
+    <div class="isv-hero">
+
+      <!-- Zelle -->
+      <div class="isv-card zelle reveal" id="zelle">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+          <span class="badge badge-live"><span class="badge-dot" style="background:#4ADE80;"></span> Active ISV</span>
+          <span class="badge badge-isv">FinTech</span>
+        </div>
+        <h2>Zelle<sup style="font-size:16px;">®</sup> Verification</h2>
+        <div class="isv-tagline">Identity &amp; Payment Verification Platform</div>
+        <p>A compliance-first, ISV-certified verification layer built on the Zelle® payment network. Designed for businesses that need to confirm customer identity and payment eligibility before onboarding, reducing fraud exposure and streamlining KYC workflows.</p>
+        <ul class="isv-features">
+          <li>Real-time Zelle® enrollment status verification</li>
+          <li>KYC/AML-compliant identity cross-reference</li>
+          <li>API-first architecture for seamless integration</li>
+          <li>Audit trail and compliance reporting built-in</li>
+          <li>White-label ready for financial institution partners</li>
+          <li>Webhooks for event-driven verification workflows</li>
+          <li>99.9% uptime SLA with enterprise support</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary">Request ISV Access</a>
+      </div>
+
+      <!-- IXM -->
+      <div class="isv-card ixm reveal reveal-delay-2" id="ixm">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+          <span class="badge badge-dev"><span class="badge-dot" style="background:#FCD34D;"></span> In Development</span>
+          <span class="badge badge-isv">ComTech</span>
+        </div>
+        <h2>IXM Portal</h2>
+        <div class="isv-tagline">Interaction Exchange Manager — Multi-Channel Communications Platform</div>
+        <p>IXM (Interaction Exchange Manager) is an enterprise-grade multi-channel communications platform unifying WhatsApp Business API, SMS, voice, and web messaging into a single intelligent workflow engine. Built for compliance-first deployment across all supported platforms.</p>
+
+        <div class="policy-box">
+          <span style="font-size:20px;flex-shrink:0;">⚠️</span>
+          <p><strong>Compliance First:</strong> WhatsApp Business accounts must comply with <a href="https://business.whatsapp.com/policy" target="_blank">Meta's Business Messaging Policy</a>. IXM deployments are structured for full policy compliance from day one — business verification, use-case approval, and opt-in standards included.</p>
+        </div>
+
+        <ul class="isv-features">
+          <li>WhatsApp Business API (policy-compliant by default)</li>
+          <li>Omnichannel inbox — WhatsApp, SMS, web chat, voice</li>
+          <li>Automated flow builder with AI-powered routing</li>
+          <li>CRM connectors (Salesforce, HubSpot, custom API)</li>
+          <li>Analytics &amp; conversation intelligence dashboard</li>
+          <li>Enterprise SLA and end-to-end encryption</li>
+        </ul>
+        <a href="contact.html" class="btn btn-blue">Join the Waitlist</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ HOW ZELLE VERIFICATION WORKS ═══ -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:56px;">
+      <div class="eyebrow" style="justify-content:center;">Zelle Verification</div>
+      <h2>How It <span class="text-orange">Works</span></h2>
+      <p style="color:var(--muted);max-width:480px;margin:16px auto 0;">A four-step process that integrates seamlessly into your existing onboarding workflow.</p>
+    </div>
+    <div class="how-it-works reveal">
+      <div class="hiw-step">
+        <div class="hiw-num">1</div>
+        <h4>API Request</h4>
+        <p>Your system sends a verification request with the customer's phone number or email via our REST API.</p>
+      </div>
+      <div class="hiw-step">
+        <div class="hiw-num">2</div>
+        <h4>Zelle® Lookup</h4>
+        <p>We query the Zelle® network in real time to confirm enrollment status and matched identity attributes.</p>
+      </div>
+      <div class="hiw-step">
+        <div class="hiw-num">3</div>
+        <h4>KYC Cross-Check</h4>
+        <p>Results are cross-referenced against your KYC/AML requirements and compliance rules engine.</p>
+      </div>
+      <div class="hiw-step">
+        <div class="hiw-num">4</div>
+        <h4>Instant Response</h4>
+        <p>A structured verification result is returned in milliseconds with full audit log for compliance records.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHATSAPP COMPLIANCE ═══ -->
+<section class="section" id="whatsapp">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:40px;">
+      <div class="eyebrow">WhatsApp Business</div>
+      <h2>Compliance-Ready <span class="text-orange">Deployment</span></h2>
+      <p style="color:var(--muted);max-width:580px;margin-top:12px;line-height:1.75;">The IXM Portal's WhatsApp Business API integration is built from the ground up to meet <a href="https://business.whatsapp.com/policy" target="_blank" style="color:var(--orange);">Meta's Business Messaging Policy</a>. Non-compliant deployments risk account restriction — we ensure yours is approved from the start.</p>
+    </div>
+    <div class="compliance-grid reveal">
+      <div class="compliance-item">
+        <span style="font-size:24px;">✅</span>
+        <div>
+          <h4>Business Verification</h4>
+          <p>We guide your Meta Business Manager verification process end-to-end, including document submission and account review.</p>
+        </div>
+      </div>
+      <div class="compliance-item">
+        <span style="font-size:24px;">📋</span>
+        <div>
+          <h4>Use Case Approval</h4>
+          <p>Every messaging use case is reviewed against Meta policy before activation. We help structure approved use cases that meet platform requirements.</p>
+        </div>
+      </div>
+      <div class="compliance-item">
+        <span style="font-size:24px;">🙋</span>
+        <div>
+          <h4>Opt-In Standards</h4>
+          <p>We implement explicit, policy-compliant opt-in flows that meet Meta's user consent requirements for each message category.</p>
+        </div>
+      </div>
+      <div class="compliance-item">
+        <span style="font-size:24px;">📊</span>
+        <div>
+          <h4>Quality Score Monitoring</h4>
+          <p>Continuous monitoring of your WhatsApp quality rating with automated alerts and remediation guidance before issues escalate.</p>
+        </div>
+      </div>
+      <div class="compliance-item">
+        <span style="font-size:24px;">🔒</span>
+        <div>
+          <h4>Data Handling Compliance</h4>
+          <p>End-to-end encryption, data retention policies, and GDPR/CCPA-compliant data handling for all conversation data.</p>
+        </div>
+      </div>
+      <div class="compliance-item">
+        <span style="font-size:24px;">🔄</span>
+        <div>
+          <h4>Policy Update Management</h4>
+          <p>As Meta updates its Business Messaging Policy, we proactively assess impact and update your deployment to maintain compliance.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:32px;background:rgba(232,78,27,0.06);border:1px solid rgba(232,78,27,0.18);border-radius:8px;padding:28px;display:flex;gap:20px;align-items:flex-start;" class="reveal">
+      <span style="font-size:28px;flex-shrink:0;">💡</span>
+      <div>
+        <h4 style="margin-bottom:6px;font-size:15px;">About Account Restrictions</h4>
+        <p style="font-size:13px;color:var(--muted);line-height:1.7;">WhatsApp Business accounts that do not fulfill the conditions laid out in Meta's Business Messaging Policy can be restricted or disabled. This commonly happens when accounts are activated without proper business verification, use unapproved message templates, or lack compliant opt-in processes. The IXM Portal deployment process is specifically designed to prevent these issues by ensuring full compliance before any messaging begins.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding:72px 0;background:var(--surface);border-top:1px solid var(--border);">
+  <div class="container" style="text-align:center;">
+    <div class="reveal">
+      <h2>Interested in Our <span class="text-orange">ISV Solutions?</span></h2>
+      <p style="color:var(--muted);max-width:480px;margin:16px auto 36px;">Contact us to discuss access to the Zelle Verification Platform or to reserve your spot on the IXM Portal waitlist.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="contact.html?interest=zelle" class="btn btn-primary">Zelle Verification Access</a>
+        <a href="contact.html?interest=ixm" class="btn btn-blue">IXM Portal Waitlist</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-placeholder"></div>
+<script src="../js/nav.js"></script>
+<script>GMFTNav.inject('../');</script>
+<script src="../js/main.js"></script>
+</body>
+</html>

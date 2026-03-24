@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms &amp; Conditions — Global MFT</title>
+<meta name="description" content="Terms and Conditions for Global MFT consulting services, ISV products, and platform use.">
+<link rel="stylesheet" href="../css/global.css">
+<style>
+.terms-layout { display: grid; grid-template-columns: 240px 1fr; gap: 56px; align-items: start; }
+.terms-toc {
+  position: sticky;
+  top: 90px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+}
+.terms-toc h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+.toc-link {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--muted);
+  padding: 7px 10px;
+  border-radius: 4px;
+  margin-bottom: 2px;
+  transition: all var(--transition);
+}
+.toc-link:hover { background: var(--orange-soft); color: var(--orange); }
+
+.terms-body { max-width: 760px; }
+.terms-section { margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--border); }
+.terms-section:last-child { border: none; margin: 0; padding: 0; }
+.terms-section h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(232,78,27,0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.terms-section h3 span { font-size: 12px; font-family: 'Inter',sans-serif; font-weight: 500; color: var(--muted); }
+.terms-section p { font-size: 14px; font-weight: 300; color: var(--muted); line-height: 1.85; margin-bottom: 12px; }
+.terms-section ul { padding-left: 0; margin: 8px 0 12px; }
+.terms-section ul li {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 6px;
+  padding-left: 20px;
+  position: relative;
+}
+.terms-section ul li::before { content: '•'; position: absolute; left: 4px; color: var(--orange); }
+.terms-section a { color: var(--orange); }
+.terms-section a:hover { text-decoration: underline; }
+
+.terms-meta {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 40px;
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.meta-item { display: flex; flex-direction: column; gap: 3px; }
+.meta-item label { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+.meta-item span  { font-size: 13px; color: var(--text); }
+
+@media (max-width:1024px) { .terms-layout { grid-template-columns: 1fr; } .terms-toc { position: static; } }
+</style>
+</head>
+<body>
+
+<div id="announce-bar"></div>
+<div id="site-header-placeholder"></div>
+
+<!-- Banner -->
+<div class="page-banner">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a><span>›</span><span>Terms &amp; Conditions</span>
+    </div>
+    <div class="eyebrow">Legal</div>
+    <h1>Terms &amp; <span style="color:var(--orange)">Conditions</span></h1>
+    <p style="color:var(--muted);max-width:560px;font-size:17px;margin-top:16px;">Governing terms for all consulting engagements, ISV software services, and use of Global MFT platforms and materials.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="terms-layout">
+
+      <!-- TOC -->
+      <div>
+        <div class="terms-toc reveal">
+          <h4>Contents</h4>
+          <a href="#scope"        class="toc-link">1. Scope of Services</a>
+          <a href="#engagement"   class="toc-link">2. Engagement Terms</a>
+          <a href="#confidential" class="toc-link">3. Confidentiality &amp; Data</a>
+          <a href="#isv"          class="toc-link">4. ISV Acceptable Use</a>
+          <a href="#ip"           class="toc-link">5. Intellectual Property</a>
+          <a href="#liability"    class="toc-link">6. Limitation of Liability</a>
+          <a href="#platform"     class="toc-link">7. Platform Compliance</a>
+          <a href="#governing"    class="toc-link">8. Governing Law</a>
+          <a href="#privacy"      class="toc-link">9. Privacy Policy</a>
+          <a href="#updates"      class="toc-link">10. Updates to Terms</a>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="terms-body reveal">
+
+        <div class="terms-meta">
+          <div class="meta-item"><label>Last Updated</label><span>January 2025</span></div>
+          <div class="meta-item"><label>Effective Date</label><span>January 1, 2025</span></div>
+          <div class="meta-item"><label>Company</label><span>Global MFT · A CobraNext Company</span></div>
+          <div class="meta-item"><label>Contact</label><span>legal@globalmft.cobranext.com</span></div>
+        </div>
+
+        <div class="terms-section" id="scope">
+          <h3>1. Scope of Services <span>§ 1.0</span></h3>
+          <p>Global MFT provides business technology consulting, advisory, and Independent Software Vendor (ISV) software services as defined in each engagement's Statement of Work (SOW) or Service Agreement. Services include but are not limited to IT strategy, cloud advisory, cybersecurity consulting, digital transformation, data analytics, and access to proprietary software products (Zelle Verification Platform, IXM Portal).</p>
+          <p>All services are rendered on a professional services basis. Global MFT does not provide legal, financial, or regulatory legal counsel, though our consultants may assist clients in identifying and engaging appropriate specialists in those fields.</p>
+          <p>Nothing in these terms shall be construed to create an employment relationship, joint venture, or partnership between Global MFT and the client.</p>
+        </div>
+
+        <div class="terms-section" id="engagement">
+          <h3>2. Engagement Terms &amp; Payment <span>§ 2.0</span></h3>
+          <p>All consulting engagements require a signed Statement of Work (SOW) or Master Services Agreement (MSA) prior to commencement. Project-based engagements are scoped with defined deliverables, timelines, and payment milestones.</p>
+          <ul>
+            <li>Retainer services are billed monthly in advance and are subject to monthly renewal unless otherwise specified in the SOW.</li>
+            <li>Project-based engagements: 50% of total project fee due upon SOW execution; remaining 50% due upon final delivery acceptance.</li>
+            <li>Hourly advisory engagements: billed bi-weekly against a pre-approved bank of hours.</li>
+            <li>All fees are non-refundable once work has commenced unless otherwise agreed in writing and prior to commencement.</li>
+            <li>Invoices are payable within 30 days of issuance. Late payments incur interest at 1.5% per month.</li>
+            <li>Prices are exclusive of applicable taxes. Client is responsible for all applicable taxes in their jurisdiction.</li>
+          </ul>
+        </div>
+
+        <div class="terms-section" id="confidential">
+          <h3>3. Confidentiality &amp; Data Protection <span>§ 3.0</span></h3>
+          <p>Global MFT treats all client information — including business strategies, technical architectures, financial data, customer records, and personnel information — as strictly confidential. We comply with applicable data protection regulations including GDPR, CCPA, and applicable U.S. federal and state privacy laws.</p>
+          <p>All Global MFT employees and contractors are bound by Non-Disclosure Agreements (NDAs) covering client information. Client data is never shared with third parties without explicit written consent, except as required by applicable law or valid legal process.</p>
+          <p>Upon engagement termination, Global MFT will, at client's written request, return or certifiably destroy all client confidential information within 30 days.</p>
+        </div>
+
+        <div class="terms-section" id="isv">
+          <h3>4. ISV Software Services — Acceptable Use <span>§ 4.0</span></h3>
+          <p>Access to Global MFT ISV products, including the Zelle Verification Platform and IXM Portal, is subject to the following conditions:</p>
+          <ul>
+            <li>Users must comply with all applicable third-party platform policies, including Zelle® network terms and <a href="https://business.whatsapp.com/policy" target="_blank">Meta's Business Messaging Policy</a>.</li>
+            <li>Accounts found to be in violation of third-party platform policies — including WhatsApp Business accounts that do not meet the conditions of Meta's Business Messaging Policy — may be suspended or terminated without prior notice.</li>
+            <li>All WhatsApp Business API access through IXM Portal must be established through verified, policy-compliant business profiles with approved use cases and proper opt-in flows.</li>
+            <li>Payment verification services through the Zelle Verification Platform may only be used for lawful KYC, AML, or fraud prevention purposes.</li>
+            <li>Resale or sublicensing of ISV product access is prohibited without a separate written Reseller or White-Label Agreement with Global MFT.</li>
+            <li>Reverse engineering, decompilation, or unauthorized access attempts against ISV systems are strictly prohibited and will result in immediate termination.</li>
+          </ul>
+        </div>
+
+        <div class="terms-section" id="ip">
+          <h3>5. Intellectual Property <span>§ 5.0</span></h3>
+          <p>All consulting deliverables, unless specifically assigned by written agreement, remain the property of Global MFT until full payment is received. Upon receipt of full payment, client receives a perpetual, non-transferable, non-sublicensable license to use deliverables for the client's internal business purposes.</p>
+          <p>Global MFT's proprietary methodologies, frameworks, tools, templates, and software — including but not limited to the IXM Portal and Zelle Verification Platform — remain the exclusive intellectual property of Global MFT and CobraNext regardless of engagement status.</p>
+          <p>Client grants Global MFT a limited license to use client-provided materials, data, and systems solely for the purpose of delivering the agreed services.</p>
+        </div>
+
+        <div class="terms-section" id="liability">
+          <h3>6. Limitation of Liability <span>§ 6.0</span></h3>
+          <p>To the maximum extent permitted by applicable law, Global MFT's total cumulative liability for any claim arising from consulting services shall not exceed the total fees paid by the client for the specific engagement giving rise to the claim in the three (3) calendar months preceding the date the claim arose.</p>
+          <p>In no event shall Global MFT be liable for any indirect, incidental, special, consequential, punitive, or exemplary damages, including without limitation lost profits, lost revenue, lost data, loss of goodwill, or business interruption, even if Global MFT has been advised of the possibility of such damages.</p>
+          <p>This limitation applies regardless of the form of action, whether in contract, tort, warranty, or otherwise.</p>
+        </div>
+
+        <div class="terms-section" id="platform">
+          <h3>7. Platform Compliance Advisory <span>§ 7.0</span></h3>
+          <p>Where Global MFT provides advisory services related to third-party platform compliance — including Meta Business Suite, WhatsApp Business API, Zelle®, payment networks, and telecommunications carriers — the client acknowledges that platform policies are subject to change at the sole discretion of the platform owner.</p>
+          <p>Global MFT is not responsible for account suspensions, restrictions, policy enforcement actions, or service terminations taken by third-party platforms. Our compliance advisory reflects platform policies as known and understood at the time of the engagement.</p>
+          <p>All new WhatsApp Business API deployments through IXM Portal are structured to comply with then-current Meta Business Messaging Policy from inception. Clients bear ongoing responsibility for maintaining compliance with policies that evolve after deployment.</p>
+        </div>
+
+        <div class="terms-section" id="governing">
+          <h3>8. Governing Law &amp; Disputes <span>§ 8.0</span></h3>
+          <p>These terms and all engagements governed thereby shall be construed in accordance with the laws of the jurisdiction specified in the applicable SOW or MSA, without regard to conflict of law principles.</p>
+          <p>In the absence of a specified jurisdiction, the laws of the State of Florida, United States shall govern. The parties irrevocably consent to the exclusive jurisdiction of courts located in Florida for any dispute not resolved through arbitration.</p>
+          <p>All disputes arising under or in connection with these terms shall first be addressed through good-faith negotiation between senior representatives of both parties. If unresolved within thirty (30) calendar days, disputes shall be submitted to binding arbitration under the Commercial Arbitration Rules of the American Arbitration Association (AAA).</p>
+        </div>
+
+        <div class="terms-section" id="privacy">
+          <h3>9. Privacy Policy <span>§ 9.0</span></h3>
+          <p>Global MFT collects and processes personal data only as necessary to deliver contracted services and to respond to inquiries. We do not sell, rent, or trade personal data to third parties for marketing purposes.</p>
+          <p>Data collected through this website (contact form submissions, inquiry data) is used exclusively for business communication and service delivery. We retain inquiry data for up to 24 months unless a business relationship is established, in which case data is retained for the duration of the relationship plus 7 years for legal compliance purposes.</p>
+          <p>Individuals subject to GDPR or CCPA have rights to access, correct, delete, and port their personal data. Submit requests to <a href="mailto:legal@globalmft.cobranext.com">legal@globalmft.cobranext.com</a>.</p>
+        </div>
+
+        <div class="terms-section" id="updates">
+          <h3>10. Updates to Terms <span>§ 10.0</span></h3>
+          <p>Global MFT reserves the right to update these Terms and Conditions at any time. Material changes will be communicated to active clients with a minimum of thirty (30) days written notice via email to the address on file.</p>
+          <p>Continued engagement or use of ISV products following notice of material changes constitutes acceptance of the revised terms. If you do not agree to revised terms, you must notify Global MFT in writing within the notice period and cease use of affected services.</p>
+          <p>Non-material changes (such as contact detail updates or clarifications that do not affect client rights or obligations) may be made without prior notice.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-placeholder"></div>
+<script src="../js/nav.js"></script>
+<script>GMFTNav.inject('../');</script>
+<script src="../js/main.js"></script>
+</body>
+</html>

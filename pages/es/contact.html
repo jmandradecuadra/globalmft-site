@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto — Global MFT</title>
+<meta name="description" content="Contacte a Global MFT para consultoría en tecnología empresarial, consultas de productos ISV y oportunidades de asociación.">
+<link rel="stylesheet" href="../../css/global.css">
+<style>
+.contact-layout{display:grid;grid-template-columns:1fr 500px;gap:72px;align-items:start}
+.contact-info{display:flex;flex-direction:column;gap:24px}
+.ci-item{display:flex;align-items:flex-start;gap:16px;padding:20px;background:var(--surface);border:1px solid var(--border);border-radius:8px;transition:border-color var(--transition)}
+.ci-item:hover{border-color:rgba(232,78,27,0.25)}
+.ci-icon{width:40px;height:40px;background:var(--orange-soft);border:1px solid rgba(232,78,27,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.ci-body h4{font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.ci-body p{font-size:14px;color:var(--white)}
+.ci-body a{color:var(--orange);transition:opacity var(--transition)}
+.ci-body a:hover{opacity:0.8}
+.contact-form-wrap{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:40px;position:relative;overflow:hidden}
+.contact-form-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--blue-mid))}
+.form-title{font-size:22px;font-weight:700;color:var(--white);margin-bottom:28px;font-family:'Sora',sans-serif}
+@media(max-width:1024px){.contact-layout{grid-template-columns:1fr;gap:40px}}
+</style>
+</head>
+<body>
+<div id="announce-bar"></div>
+<div id="site-header-placeholder"></div>
+
+<div class="page-banner">
+  <div class="container">
+    <div class="breadcrumb"><a href="../../es/index.html">Inicio</a><span>›</span><span>Contacto</span></div>
+    <div class="eyebrow">Contáctenos</div>
+    <h1>Iniciemos una <span style="color:var(--orange)">Conversación</span></h1>
+    <p style="color:var(--muted);max-width:520px;font-size:17px;margin-top:16px;">Ya sea que necesite un socio tecnológico para una iniciativa específica o quiera una evaluación integral de su panorama TI actual, estamos listos para ayudar.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-layout">
+      <div>
+        <div class="reveal">
+          <div class="eyebrow">Información de Contacto</div>
+          <h2 style="margin-bottom:32px;">Cómo <span class="text-orange">Contactarnos</span></h2>
+        </div>
+        <div class="contact-info reveal">
+          <div class="ci-item"><div class="ci-icon">🌐</div><div class="ci-body"><h4>Sitio Web</h4><p><a href="https://globalmft.cobranext.com">globalmft.cobranext.com</a></p></div></div>
+          <div class="ci-item"><div class="ci-icon">📧</div><div class="ci-body"><h4>Consultas Generales</h4><p><a href="mailto:info@globalmft.cobranext.com">info@globalmft.cobranext.com</a></p></div></div>
+          <div class="ci-item"><div class="ci-icon">💼</div><div class="ci-body"><h4>Desarrollo de Negocios y Alianzas</h4><p><a href="mailto:partners@globalmft.cobranext.com">partners@globalmft.cobranext.com</a></p></div></div>
+          <div class="ci-item"><div class="ci-icon">⚖️</div><div class="ci-body"><h4>Legal y Cumplimiento</h4><p><a href="mailto:legal@globalmft.cobranext.com">legal@globalmft.cobranext.com</a></p></div></div>
+          <div class="ci-item"><div class="ci-icon">🖥️</div><div class="ci-body"><h4>Soporte de Productos ISV</h4><p><a href="mailto:isv@globalmft.cobranext.com">isv@globalmft.cobranext.com</a></p></div></div>
+        </div>
+        <div style="margin-top:32px;padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:8px;" class="reveal">
+          <h4 style="font-size:13px;font-weight:700;color:var(--white);margin-bottom:8px;">Tiempos de Respuesta</h4>
+          <p style="font-size:13px;color:var(--muted);line-height:1.7;">Consultas generales: dentro de 1 día hábil. Solicitudes de productos ISV: dentro de 2 días hábiles. Asuntos legales y de cumplimiento: dentro de 3 días hábiles. Para asuntos urgentes, indique "URGENTE" en el asunto del correo.</p>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap reveal reveal-delay-2">
+        <div class="form-title">Solicitar una Consulta</div>
+        <form class="contact-form" id="contact-form">
+          <div class="form-row">
+            <div class="form-group"><label>Nombre</label><input type="text" name="first_name" placeholder="Juan" required></div>
+            <div class="form-group"><label>Apellido</label><input type="text" name="last_name" placeholder="Pérez" required></div>
+          </div>
+          <div class="form-group"><label>Empresa / Organización</label><input type="text" name="company" placeholder="Mi Empresa S.A." required></div>
+          <div class="form-group"><label>Correo Corporativo</label><input type="email" name="email" placeholder="juan@miempresa.com" required></div>
+          <div class="form-group"><label>Teléfono (opcional)</label><input type="tel" name="phone" placeholder="+1 (555) 000-0000"></div>
+          <div class="form-group">
+            <label>Área de Interés</label>
+            <select name="interest" required>
+              <option value="">Seleccione un servicio o producto…</option>
+              <optgroup label="Servicios de Consultoría">
+                <option>Estrategia TI y Planificación</option>
+                <option>Soluciones en la Nube</option>
+                <option>Ciberseguridad y Cumplimiento</option>
+                <option>Transformación Digital</option>
+                <option>Analítica Empresarial</option>
+                <option>Telecom y Conectividad</option>
+                <option>Eficiencia Operacional</option>
+              </optgroup>
+              <optgroup label="Productos ISV">
+                <option value="zelle">Plataforma de Verificación Zelle</option>
+                <option value="ixm">Portal IXM (Lista de Espera)</option>
+                <option>Cumplimiento WhatsApp Business</option>
+              </optgroup>
+              <optgroup label="Otro">
+                <option>Alianza / Revendedor</option>
+                <option>Consulta General</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="form-group"><label>¿Cómo Podemos Ayudarle?</label><textarea name="message" placeholder="Describa brevemente sus necesidades, desafíos o la iniciativa en la que está trabajando…" required></textarea></div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;font-size:14px;padding:14px;">
+            Enviar Consulta
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 3l5 4-5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-placeholder"></div>
+<script src="../../js/nav.js"></script>
+<script>GMFTNav.inject('../../', 'es');</script>
+<script src="../../js/main.js"></script>
+<script>
+(function(){
+  var p = new URLSearchParams(window.location.search);
+  var interest = p.get('interest');
+  if (interest) {
+    var sel = document.querySelector('select[name="interest"]');
+    if (sel) {
+      for (var i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].value.toLowerCase() === interest.toLowerCase() ||
+            sel.options[i].text.toLowerCase().indexOf(interest.toLowerCase()) !== -1) {
+          sel.options[i].selected = true; break;
+        }
+      }
+    }
+  }
+})();
+</script>
+</body>
+</html>

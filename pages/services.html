@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consulting Services — Global MFT</title>
+<meta name="description" content="IT Strategy, Cloud Solutions, Cybersecurity, Digital Transformation, Telecom, and Operational Efficiency consulting from Global MFT.">
+<link rel="stylesheet" href="../css/global.css">
+<style>
+.services-intro { display: grid; grid-template-columns: 1fr 380px; gap: 64px; align-items: start; }
+.services-quick-nav {
+  position: sticky;
+  top: 90px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+}
+.services-quick-nav h4 {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.qnav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  border-radius: 5px;
+  margin-bottom: 2px;
+  transition: all var(--transition);
+}
+.qnav-link:hover { background: var(--orange-soft); color: var(--orange); }
+.qnav-link span { font-size: 16px; }
+
+.service-block {
+  padding: 72px 0;
+  border-bottom: 1px solid var(--border);
+}
+.service-block:last-child { border-bottom: none; }
+.sb-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+.sb-icon {
+  width: 64px; height: 64px;
+  border-radius: 12px;
+  background: var(--orange-soft);
+  border: 1px solid rgba(232,78,27,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  flex-shrink: 0;
+}
+.sb-icon.blue-icon {
+  background: var(--blue-soft);
+  border-color: rgba(30,92,179,0.25);
+}
+.sb-meta h3 { font-size: 26px; margin-bottom: 6px; }
+.sb-meta p { font-size: 15px; color: var(--muted); }
+
+.sb-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.sb-desc p { font-size: 15px; color: var(--text); line-height: 1.8; margin-bottom: 16px; }
+.sb-features { list-style: none; margin-top: 16px; }
+.sb-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text);
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.sb-features li::before { content: '→'; color: var(--orange); flex-shrink: 0; margin-top: 1px; }
+.sb-features li:last-child { border: none; }
+
+.sb-callout {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 28px;
+}
+.sb-callout h4 { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 16px; }
+.sb-callout ul { list-style: none; }
+.sb-callout ul li {
+  font-size: 13px;
+  color: var(--muted);
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sb-callout ul li::before { content: '✓'; color: #4ADE80; flex-shrink: 0; font-weight: 700; }
+.sb-callout ul li:last-child { border: none; }
+
+@media (max-width:1024px) {
+  .services-intro { grid-template-columns: 1fr; }
+  .services-quick-nav { position: static; }
+  .sb-content { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div id="announce-bar"></div>
+<div id="site-header-placeholder"></div>
+
+<!-- Banner -->
+<div class="page-banner">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a><span>›</span><span>Services</span>
+    </div>
+    <div class="eyebrow">What We Do</div>
+    <h1>Consulting <span style="color:var(--orange)">Services</span></h1>
+    <p style="color:var(--muted);max-width:580px;font-size:17px;margin-top:16px;">Comprehensive technology advisory spanning strategy, infrastructure, security, and operations — aligned to your business goals.</p>
+  </div>
+</div>
+
+<!-- Main content -->
+<section class="section">
+  <div class="container">
+    <div class="services-intro">
+      <div>
+
+        <!-- 1. IT Strategy -->
+        <div class="service-block reveal" id="strategy">
+          <div class="sb-header">
+            <div class="sb-icon">🗺️</div>
+            <div class="sb-meta">
+              <h3>IT Strategy &amp; Planning</h3>
+              <p>Align your technology investments with business goals</p>
+            </div>
+          </div>
+          <div class="sb-content">
+            <div class="sb-desc">
+              <p>We develop comprehensive technology roadmaps that bridge the gap between your current IT state and your business vision. Our IT Strategy engagements begin with a thorough assessment of your existing infrastructure, applications, and processes.</p>
+              <p>We then define a prioritized, phased transformation plan with clear ROI metrics for each initiative — so every technology dollar spent can be traced back to a business outcome.</p>
+              <ul class="sb-features">
+                <li>Technology roadmap development (1–3 year horizon)</li>
+                <li>Current-state IT assessment &amp; gap analysis</li>
+                <li>IT governance and operating model design</li>
+                <li>Vendor portfolio rationalization</li>
+                <li>Budget optimization and total cost of ownership modeling</li>
+              </ul>
+            </div>
+            <div class="sb-callout">
+              <h4>Deliverables Include</h4>
+              <ul>
+                <li>Executive technology roadmap</li>
+                <li>IT maturity assessment report</li>
+                <li>Investment prioritization matrix</li>
+                <li>Governance framework</li>
+                <li>KPI dashboard template</li>
+                <li>Vendor scorecard</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Cloud -->
+        <div class="service-block reveal" id="cloud">
+          <div class="sb-header">
+            <div class="sb-icon blue-icon">☁️</div>
+            <div class="sb-meta">
+              <h3>Cloud Solutions</h3>
+              <p>Multi-cloud adoption, migration, and management</p>
+            </div>
+          </div>
+          <div class="sb-content">
+            <div class="sb-desc">
+              <p>Our cloud advisory practice covers the full spectrum from initial cloud strategy to complex multi-cloud operations. We work across AWS, Azure, and Google Cloud with a vendor-agnostic approach — recommending what truly fits your workloads, team, and budget.</p>
+              <p>We prefer Cloudflare for CDN, edge security, and DNS management, keeping your architecture modern and cost-efficient without AWS dependency for these layers.</p>
+              <ul class="sb-features">
+                <li>Cloud readiness assessment &amp; business case development</li>
+                <li>Cloud migration strategy (lift-and-shift, re-platform, re-architect)</li>
+                <li>Multi-cloud and hybrid architecture design</li>
+                <li>FinOps — cloud cost optimization &amp; governance</li>
+                <li>Cloudflare CDN, edge security &amp; Workers deployments</li>
+                <li>Infrastructure-as-Code (Terraform, Pulumi)</li>
+              </ul>
+            </div>
+            <div class="sb-callout">
+              <h4>Cloud Platforms</h4>
+              <ul>
+                <li>Amazon Web Services (AWS)</li>
+                <li>Microsoft Azure</li>
+                <li>Google Cloud Platform</li>
+                <li>Cloudflare (preferred CDN/edge)</li>
+                <li>Multi-cloud &amp; hybrid</li>
+                <li>Private / on-premise</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Security -->
+        <div class="service-block reveal" id="security">
+          <div class="sb-header">
+            <div class="sb-icon">🛡️</div>
+            <div class="sb-meta">
+              <h3>Cybersecurity &amp; Compliance</h3>
+              <p>Risk assessment, security frameworks, platform compliance</p>
+            </div>
+          </div>
+          <div class="sb-content">
+            <div class="sb-desc">
+              <p>We build security postures that go beyond checkbox compliance — addressing technical controls, governance processes, and human factors. Our practice spans traditional IT security, cloud security, and platform-specific compliance including Meta Business Policy and WhatsApp Business API.</p>
+              <ul class="sb-features">
+                <li>Cybersecurity risk assessment &amp; gap analysis</li>
+                <li>Security framework implementation (NIST, SOC 2, ISO 27001)</li>
+                <li>Regulatory compliance — PCI-DSS, HIPAA, GDPR, CCPA</li>
+                <li>Meta Business &amp; WhatsApp Business policy compliance advisory</li>
+                <li>Incident response planning &amp; tabletop exercises</li>
+                <li>Security awareness training programs</li>
+              </ul>
+            </div>
+            <div class="sb-callout">
+              <h4>Compliance Frameworks</h4>
+              <ul>
+                <li>NIST Cybersecurity Framework</li>
+                <li>SOC 2 Type I &amp; II</li>
+                <li>ISO/IEC 27001</li>
+                <li>PCI-DSS v4.0</li>
+                <li>HIPAA / HITECH</li>
+                <li>Meta Business Policy</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Digital Transformation -->
+        <div class="service-block reveal" id="digital">
+          <div class="sb-header">
+            <div class="sb-icon blue-icon">⚡</div>
+            <div class="sb-meta">
+              <h3>Digital Transformation</h3>
+              <p>Legacy modernization, agility, and new technology adoption</p>
+            </div>
+          </div>
+          <div class="sb-content">
+            <div class="sb-desc">
+              <p>We guide organizations through the complex process of modernizing legacy systems and adopting new technologies. Our approach minimizes disruption while maximizing the organizational agility gained from transformation.</p>
+              <ul class="sb-features">
+                <li>Legacy system assessment &amp; modernization roadmap</li>
+                <li>API-first architecture design</li>
+                <li>ERP / CRM implementation &amp; migration</li>
+                <li>Process automation (RPA, workflow tools)</li>
+                <li>Agile/DevOps transformation</li>
+                <li>Change management &amp; adoption enablement</li>
+              </ul>
+            </div>
+            <div class="sb-callout">
+              <h4>Common Transformations</h4>
+              <ul>
+                <li>Monolith to microservices</li>
+                <li>On-premise to cloud</li>
+                <li>Manual to automated workflows</li>
+                <li>Waterfall to Agile delivery</li>
+                <li>Siloed to integrated data</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Telecom -->
+        <div class="service-block reveal" id="telecom">
+          <div class="sb-header">
+            <div class="sb-icon">📡</div>
+            <div class="sb-meta">
+              <h3>Telecom &amp; Connectivity</h3>
+              <p>Carrier negotiations, SIP/VoIP, WhatsApp Business API</p>
+            </div>
+          </div>
+          <div class="sb-content">
+            <div class="sb-desc">
+              <p>With deep roots in telecommunications, we help businesses optimize their connectivity infrastructure and leverage modern communication platforms. This includes WhatsApp Business API deployments structured for full Meta policy compliance from day one.</p>
+              <ul class="sb-features">
+                <li>Carrier contract negotiation &amp; cost optimization</li>
+                <li>SIP trunking &amp; VoIP architecture</li>
+                <li>WhatsApp Business API — policy-compliant deployment</li>
+                <li>Unified Communications (UCaaS)</li>
+                <li>SD-WAN &amp; network modernization</li>
+                <li>Multi-site connectivity planning</li>
+              </ul>
+            </div>
+            <div class="sb-callout">
+              <h4>WhatsApp Compliance Note</h4>
+              <p style="font-size:12.5px;color:var(--muted);line-height:1.65;">All WhatsApp Business API deployments must comply with <a href="https://business.whatsapp.com/policy" target="_blank" style="color:var(--orange);">Meta's Business Messaging Policy</a>. We ensure business verification, use-case approval, and opt-in standards are met before any account activation.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Operational Efficiency -->
+        <div class="service-block reveal" id="ops">
+          <div class="sb-header">
+            <div class="sb-icon blue-icon">⚙️</div>
+            <div class="sb-meta">
+              <h3>Operational Efficiency</h3>
+              <p>Automation, workflow optimization, and cost reduction</p>
+            </div>
+          </div>
+          <div class="sb-content">
+            <div class="sb-desc">
+              <p>Technology should make your business run faster, leaner, and smarter. We identify operational bottlenecks, automate repetitive processes, and implement tools that free your team to focus on higher-value work.</p>
+              <ul class="sb-features">
+                <li>Business process mapping &amp; optimization</li>
+                <li>RPA and low-code automation (Make, Zapier, Power Automate)</li>
+                <li>IT Project Management — Agile, Scrum, Kanban (Jira)</li>
+                <li>Vendor management &amp; SLA enforcement</li>
+                <li>Technology expense management</li>
+                <li>IT help desk &amp; support model design</li>
+              </ul>
+            </div>
+            <div class="sb-callout">
+              <h4>Tools We Work With</h4>
+              <ul>
+                <li>Jira / Confluence</li>
+                <li>Monday.com / Asana</li>
+                <li>Microsoft Power Platform</li>
+                <li>Make (Integromat) / Zapier</li>
+                <li>ServiceNow</li>
+                <li>Salesforce / HubSpot</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sticky sidebar nav -->
+      <div>
+        <div class="services-quick-nav reveal">
+          <h4>Jump to Service</h4>
+          <a href="#strategy" class="qnav-link"><span>🗺️</span> IT Strategy &amp; Planning</a>
+          <a href="#cloud"    class="qnav-link"><span>☁️</span> Cloud Solutions</a>
+          <a href="#security" class="qnav-link"><span>🛡️</span> Cybersecurity &amp; Compliance</a>
+          <a href="#digital"  class="qnav-link"><span>⚡</span> Digital Transformation</a>
+          <a href="#telecom"  class="qnav-link"><span>📡</span> Telecom &amp; Connectivity</a>
+          <a href="#ops"      class="qnav-link"><span>⚙️</span> Operational Efficiency</a>
+          <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--border);">
+            <p style="font-size:12px;color:var(--muted);margin-bottom:14px;">Ready to start? Schedule a complimentary assessment.</p>
+            <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;">Get in Touch</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-placeholder"></div>
+<script src="../js/nav.js"></script>
+<script>GMFTNav.inject('../');</script>
+<script src="../js/main.js"></script>
+</body>
+</html>

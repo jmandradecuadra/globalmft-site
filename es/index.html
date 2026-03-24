@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global MFT — Consultoría en Tecnología Empresarial</title>
+<meta name="description" content="Global MFT ofrece consultoría estratégica en TI, transformación en la nube, ciberseguridad, analítica empresarial y soluciones ISV para impulsar crecimiento y eficiencia.">
+<link rel="stylesheet" href="../css/global.css">
+<style>
+.hero { min-height: 100vh; padding: 130px 0 80px; }
+.hero-inner { display: grid; grid-template-columns: 1fr 420px; gap: 72px; align-items: center; }
+.hero-kicker {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(232,78,27,0.1); border: 1px solid rgba(232,78,27,0.25);
+  color: var(--orange); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 6px 14px; border-radius: 20px; margin-bottom: 24px;
+}
+.hero-kicker::before { content:''; width:6px;height:6px;border-radius:50%;background:var(--orange);animation:blink 2s infinite; }
+.hero h1 { margin-bottom: 24px; }
+.hero h1 em { font-style: normal; color: var(--orange); }
+.hero-desc { font-size: 17px; font-weight: 300; color: var(--text); max-width: 520px; line-height: 1.75; margin-bottom: 40px; }
+.hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-card { background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:32px;position:relative; }
+.hero-card::before { content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--blue-mid));border-radius:10px 10px 0 0; }
+.hc-title { font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:24px; }
+.hc-metrics { display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px; }
+.hc-metric { background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:6px;padding:16px; }
+.hc-metric-val { font-family:'Sora',sans-serif;font-size:28px;font-weight:800;color:var(--orange);line-height:1;margin-bottom:4px; }
+.hc-metric-lbl { font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted); }
+.hc-tags { display:flex;flex-wrap:wrap;gap:6px; }
+.hc-tag { background:rgba(30,92,179,0.12);border:1px solid rgba(30,92,179,0.22);color:#7EB0FF;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:4px 9px;border-radius:3px; }
+.svc-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden; }
+.svc-tile { background:var(--dark2);padding:32px 28px;transition:background var(--transition);position:relative;overflow:hidden; }
+.svc-tile:hover { background:var(--surface2); }
+.svc-num { font-family:'Sora',sans-serif;font-size:36px;font-weight:800;color:rgba(255,255,255,0.04);line-height:1;margin-bottom:16px; }
+.svc-tile:hover .svc-num { color:rgba(232,78,27,0.06); }
+.svc-icon { font-size:26px;margin-bottom:12px;display:block; }
+.svc-tile h3 { font-size:16px;font-weight:700;color:var(--white);margin-bottom:8px; }
+.svc-tile p { font-size:13px;color:var(--muted);line-height:1.6; }
+.svc-tile::after { content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--orange);transition:width 0.3s ease; }
+.svc-tile:hover::after { width:100%; }
+.svc-link { display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange);margin-top:12px;transition:gap var(--transition); }
+.svc-link:hover { gap:9px; }
+.engage-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:24px; }
+.engage-card { text-align:center;padding:40px 28px;background:var(--surface);border:1px solid var(--border);border-radius:8px;transition:all var(--transition); }
+.engage-card:hover { transform:translateY(-6px);box-shadow:0 24px 48px rgba(0,0,0,0.5);border-color:rgba(232,78,27,0.25); }
+.engage-icon { font-size:40px;margin-bottom:18px;display:block; }
+.engage-card h3 { font-size:20px;margin-bottom:10px; }
+.engage-card p { font-size:13px;color:var(--muted);line-height:1.65; }
+.why-grid { display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start; }
+.why-stat-list { display:flex;flex-direction:column;gap:3px; }
+.why-stat { display:flex;align-items:center;gap:24px;padding:22px 24px;background:var(--dark2);border:1px solid var(--border);border-left:3px solid var(--orange);transition:border-color var(--transition); }
+.why-stat-n { font-family:'Sora',sans-serif;font-size:36px;font-weight:800;color:var(--orange);line-height:1;min-width:80px; }
+.why-stat-body h4 { font-size:14px;font-weight:700;color:var(--white);margin-bottom:3px; }
+.why-stat-body p { font-size:12px;color:var(--muted); }
+.why-items { display:flex;flex-direction:column;gap:24px; }
+.why-item { display:flex;gap:18px;align-items:flex-start; }
+.why-item h4 { font-size:15px;color:var(--white);margin-bottom:5px; }
+.why-item p { font-size:13px;color:var(--muted);line-height:1.65; }
+@media(max-width:1024px){.hero-inner{grid-template-columns:1fr}.hero-card{display:none}.svc-grid{grid-template-columns:1fr 1fr}.why-grid{grid-template-columns:1fr;gap:40px}}
+@media(max-width:768px){.svc-grid{grid-template-columns:1fr}.engage-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div id="announce-bar"></div>
+<div id="site-header-placeholder"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-grid-overlay"></div>
+    <div class="hero-glow" style="width:700px;height:700px;background:radial-gradient(circle,rgba(30,92,179,0.18) 0%,transparent 70%);top:-200px;right:-100px;"></div>
+    <div class="hero-glow" style="width:500px;height:500px;background:radial-gradient(circle,rgba(232,78,27,0.12) 0%,transparent 70%);bottom:-100px;left:5%;animation-delay:-5s;"></div>
+  </div>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="reveal">
+        <div class="hero-kicker">Consultoría en Tecnología Empresarial</div>
+        <h1>Tecnología Alineada<br>con Sus <em>Objetivos</em><br>de Negocio</h1>
+        <p class="hero-desc">Global MFT ofrece asesoría estratégica en TI, transformación en la nube, ciberseguridad y analítica de datos que impulsa el crecimiento, la eficiencia operacional y la seguridad de empresas de cualquier escala.</p>
+        <div class="hero-cta">
+          <a href="../pages/es/services.html" class="btn btn-primary">
+            Explorar Servicios
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 6.5h11M7 2l5 4.5L7 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="../pages/es/contact.html" class="btn btn-secondary">Solicitar Consulta</a>
+        </div>
+      </div>
+      <div class="hero-card reveal reveal-delay-2">
+        <div class="hc-title">En Resumen</div>
+        <div class="hc-metrics">
+          <div class="hc-metric"><div class="hc-metric-val">9<span style="font-size:18px">+</span></div><div class="hc-metric-lbl">Servicios</div></div>
+          <div class="hc-metric"><div class="hc-metric-val">2</div><div class="hc-metric-lbl">Productos ISV</div></div>
+          <div class="hc-metric"><div class="hc-metric-val">360<span style="font-size:18px">°</span></div><div class="hc-metric-lbl">Asesoría</div></div>
+          <div class="hc-metric"><div class="hc-metric-val">0</div><div class="hc-metric-lbl">Dependencia Proveedor</div></div>
+        </div>
+        <div class="hc-tags">
+          <span class="hc-tag">Nube</span><span class="hc-tag">Seguridad</span>
+          <span class="hc-tag">IA/ML</span><span class="hc-tag">Telecom</span>
+          <span class="hc-tag">FinTech</span><span class="hc-tag">ISV</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust bar -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-inner">
+      <span class="trust-label">Ecosistemas Tecnológicos</span>
+      <div class="trust-items">
+        <span class="trust-item">AWS</span><span class="trust-item">Azure</span>
+        <span class="trust-item">Google Cloud</span><span class="trust-item">Cloudflare</span>
+        <span class="trust-item">Meta Business</span><span class="trust-item">WhatsApp API</span>
+        <span class="trust-item">Zelle®</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item reveal"><div class="stat-num">9+</div><div class="stat-label">Áreas de Servicio</div></div>
+      <div class="stat-item reveal reveal-delay-1"><div class="stat-num">100%</div><div class="stat-label">Agnóstico de Proveedor</div></div>
+      <div class="stat-item reveal reveal-delay-2"><div class="stat-num">40%</div><div class="stat-label">Ahorro Promedio en Costos</div></div>
+      <div class="stat-item reveal reveal-delay-3"><div class="stat-num">3×</div><div class="stat-label">Despliegue más Rápido</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICIOS -->
+<section class="section">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow">Lo Que Hacemos</div>
+      <h2 style="margin-bottom:12px;">Servicios de <span class="text-orange">Consultoría</span></h2>
+      <p style="color:var(--muted);max-width:560px;margin-bottom:52px;">Asesoría tecnológica integral en estrategia, infraestructura, seguridad, datos y operaciones — adaptada a su etapa empresarial.</p>
+    </div>
+    <div class="svc-grid reveal">
+      <div class="svc-tile">
+        <div class="svc-num">01</div><span class="svc-icon">🗺️</span>
+        <h3>Estrategia TI y Planificación</h3>
+        <p>Hojas de ruta tecnológicas y evaluaciones de TI que alinean su inversión con los objetivos del negocio.</p>
+        <a href="../pages/es/services.html#strategy" class="svc-link">Ver más →</a>
+      </div>
+      <div class="svc-tile">
+        <div class="svc-num">02</div><span class="svc-icon">☁️</span>
+        <h3>Soluciones en la Nube</h3>
+        <p>Adopción multi-nube, migración y gestión de infraestructura en AWS, Azure y Google Cloud.</p>
+        <a href="../pages/es/services.html#cloud" class="svc-link">Ver más →</a>
+      </div>
+      <div class="svc-tile">
+        <div class="svc-num">03</div><span class="svc-icon">🛡️</span>
+        <h3>Ciberseguridad y Cumplimiento</h3>
+        <p>Evaluaciones de riesgo, marcos de seguridad y cumplimiento normativo para todas sus plataformas.</p>
+        <a href="../pages/es/services.html#security" class="svc-link">Ver más →</a>
+      </div>
+      <div class="svc-tile">
+        <div class="svc-num">04</div><span class="svc-icon">⚡</span>
+        <h3>Transformación Digital</h3>
+        <p>Modernización de sistemas legados, arquitectura API-first e implementación de nuevas tecnologías.</p>
+        <a href="../pages/es/services.html#digital" class="svc-link">Ver más →</a>
+      </div>
+      <div class="svc-tile">
+        <div class="svc-num">05</div><span class="svc-icon">📊</span>
+        <h3>Analítica Empresarial</h3>
+        <p>Estrategia de datos, implementación de IA/ML y dashboards de BI que transforman datos en decisiones.</p>
+        <a href="../pages/es/analytics.html" class="svc-link">Ver más →</a>
+      </div>
+      <div class="svc-tile">
+        <div class="svc-num">06</div><span class="svc-icon">📡</span>
+        <h3>Telecom y Conectividad</h3>
+        <p>Negociación con operadores, SIP/VoIP, API de WhatsApp Business y conectividad de nueva generación.</p>
+        <a href="../pages/es/services.html#telecom" class="svc-link">Ver más →</a>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px;" class="reveal">
+      <a href="../pages/es/services.html" class="btn btn-secondary">Ver Todos los Servicios</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- POR QUÉ GLOBAL MFT -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="why-grid">
+      <div class="reveal">
+        <div class="eyebrow">Por Qué Global MFT</div>
+        <h2 style="margin-bottom:20px;">La Ventaja Es <span class="text-orange">Medible</span></h2>
+        <p style="color:var(--muted);margin-bottom:36px;">Cada proyecto se estructura en torno a resultados, no actividad. Conectamos las decisiones tecnológicas directamente al desempeño del negocio.</p>
+        <div class="why-stat-list">
+          <div class="why-stat"><div class="why-stat-n">100%</div><div class="why-stat-body"><h4>Agnóstico de Proveedor</h4><p>Recomendaciones guiadas por sus necesidades, no por incentivos de proveedores</p></div></div>
+          <div class="why-stat"><div class="why-stat-n">3×</div><div class="why-stat-body"><h4>Despliegue más Rápido</h4><p>Metodologías optimizadas que reducen el tiempo de puesta en valor</p></div></div>
+          <div class="why-stat"><div class="why-stat-n">40%</div><div class="why-stat-body"><h4>Reducción de Costos</h4><p>Ahorro operacional promedio identificado en la pila tecnológica</p></div></div>
+        </div>
+      </div>
+      <div class="why-items reveal reveal-delay-2">
+        <div class="why-item"><div class="icon-box">🎯</div><div><h4>Alineación Estratégica</h4><p>Cada decisión tecnológica evaluada a través del lente de la estrategia empresarial: crecimiento, expansión y eficiencia operacional.</p></div></div>
+        <div class="why-item"><div class="icon-box blue">💰</div><div><h4>Eficiencia en Costos</h4><p>Auditorías que eliminan herramientas redundantes, dimensionan correctamente la infraestructura y mejoran contratos con proveedores.</p></div></div>
+        <div class="why-item"><div class="icon-box">🔐</div><div><h4>Seguridad Primero</h4><p>Marcos de seguridad modernos adaptados a su industria y requisitos normativos, más allá del cumplimiento de casillas.</p></div></div>
+        <div class="why-item"><div class="icon-box blue">📐</div><div><h4>Arquitectura Escalable</h4><p>Infraestructura diseñada para crecer con usted, de 10 usuarios a 10.000 y hacia nuevos mercados.</p></div></div>
+        <div class="why-item"><div class="icon-box">⚖️</div><div><h4>Confianza en el Cumplimiento</h4><p>Desde la verificación de Meta Business hasta la regulación financiera, cada plataforma cumple los estándares de sus socios clave.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODELOS DE TRABAJO -->
+<section class="section">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:52px;" class="reveal">
+      <div class="eyebrow" style="justify-content:center;">Cómo Trabajamos</div>
+      <h2>Modelos de <span class="text-orange">Compromiso</span></h2>
+      <p style="color:var(--muted);max-width:520px;margin:16px auto 0;">Estructuras flexibles adaptadas a sus necesidades: desde asesoría puntual hasta liderazgo de proyectos completos.</p>
+    </div>
+    <div class="engage-grid">
+      <div class="engage-card reveal"><span class="engage-icon">🔭</span><h3>Asesoría Estratégica</h3><p>Asesoría mensual para estrategia tecnológica, gestión de proveedores y soporte a decisiones ejecutivas. Orientación experta sin el costo de un CTO de tiempo completo.</p></div>
+      <div class="engage-card reveal reveal-delay-1"><span class="engage-icon">🏗️</span><h3>Entrega de Proyectos</h3><p>Compromisos con alcance definido para iniciativas de transformación: migraciones a la nube, implementaciones de seguridad, plataformas de analítica, con hitos y entregables claros.</p></div>
+      <div class="engage-card reveal reveal-delay-2"><span class="engage-icon">👤</span><h3>Liderazgo Fraccionado</h3><p>Actuamos como CTO, CISO o Director de TI interino para organizaciones en transición, aportando liderazgo senior con gestión operacional directa.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:linear-gradient(135deg,var(--surface) 0%,var(--surface2) 100%);padding:72px 0;border-top:1px solid var(--border);">
+  <div class="container" style="text-align:center;">
+    <div class="reveal">
+      <h2 style="margin-bottom:16px;">¿Listo para <span class="text-orange">Transformar</span> su Tecnología?</h2>
+      <p style="color:var(--muted);max-width:520px;margin:0 auto 36px;font-size:16px;">Comience con una evaluación gratuita de su panorama tecnológico actual y una hoja de ruta clara hacia adelante.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="../pages/es/contact.html" class="btn btn-primary">Agendar una Consulta</a>
+        <a href="../pages/es/about.html" class="btn btn-secondary">Conózcanos</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-placeholder"></div>
+<script src="../js/nav.js"></script>
+<script>GMFTNav.inject('../', 'es');</script>
+<script src="../js/main.js"></script>
+</body>
+</html>
