@@ -1,6 +1,7 @@
 name = "globalmft-site"
 compatibility_date = "2026-03-24"
-
-# Si tus archivos HTML están en la raíz, usa "."
-# Si están en una carpeta llamada 'public', usa "./public"
 pages_build_output_dir = "."
+
+[[r2_buckets]]
+binding = "CONTACTS_BUCKET" # Este debe ser el nombre exacto que usas en env.CONTACTS_BUCKET
+bucket_name = "globalmft-contacts"
