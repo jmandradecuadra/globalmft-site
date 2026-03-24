@@ -15,7 +15,7 @@ export async function onRequestPost(context) {
       date: new Date().toISOString(),
     };
 
-    // 1. Verify Turnstile (Using environment variable)
+    // 1. Verificación de Turnstile
     const token = formData.get("cf-turnstile-response");
     const verifyResponse = await fetch(
       "https://challenges.cloudflare.com/turnstile/v0/siteverify",
@@ -31,33 +31,51 @@ export async function onRequestPost(context) {
       return new Response("Security check failed.", { status: 403 });
     }
 
-    // 2. Save to R2
+    // 2. Guardar en R2
     const fileKey = `inquiries/${Date.now()}-${contactData.email}.json`;
     await env.CONTACTS_BUCKET.put(fileKey, JSON.stringify(contactData), {
       httpMetadata: { contentType: "application/json" },
     });
 
-    // 3. Send Email via Brevo (Using environment variable)
-    await fetch("https://api.brevo.com/v3/smtp/email", {
+    // 3. Enviar Correo vía Brevo
+    const brevoResponse = await fetch("https://api.brevo.com/v3/smtp/email", {
       method: "POST",
       headers: {
         accept: "application/json",
-        "api-key": env.BREVO_API_KEY, // Key is now safely pulled from Cloudflare
+        "api-key": env.BREVO_API_KEY,
         "content-type": "application/json",
       },
       body: JSON.stringify({
-        sender: { name: "Global MFT", email: "info@globalmft.cobranext.com" },
+        // ASEGÚRATE QUE ESTE EMAIL SEA EL MISMO QUE VERIFICASTE EN BREVO
+        sender: { name: "Global MFT", email: "info@globalmft.cobranext.pro" },
         to: [{ email: contactData.email, name: contactData.first_name }],
         subject: "We have received your inquiry - Global MFT",
-        htmlContent: `<h2>Thank you ${contactData.first_name}!</h2><p>We received your request about ${contactData.interest}.</p>`,
+        htmlContent: `
+          <div style="font-family: sans-serif; padding: 20px; color: #333;">
+            <h2 style="color: #E84E1B;">Thank you, ${contactData.first_name}!</h2>
+            <p>We have successfully received your request for <b>${contactData.interest}</b>.</p>
+            <p>Our team will contact you shortly to discuss how we can support <b>${contactData.company}</b>.</p>
+            <hr style="border:none; border-top: 1px solid #eee; margin: 20px 0;">
+            <p style="font-size: 11px; color: #999;">Global MFT | Technology Consulting</p>
+          </div>
+        `,
       }),
     });
+
+    // Si Brevo devuelve error, lo lanzamos para verlo en los logs de Cloudflare
+    if (!brevoResponse.ok) {
+      const errorBody = await brevoResponse.text();
+      throw new Error(
+        `Brevo API Error: ${brevoResponse.status} - ${errorBody}`,
+      );
+    }
 
     return Response.redirect(
       `${new URL(request.url).origin}/contact.html?status=success`,
       303,
     );
   } catch (err) {
+    // Esto mostrará el error en la pantalla si algo falla (solo para debug)
     return new Response(`Error: ${err.message}`, { status: 500 });
   }
 }
