@@ -15,7 +15,7 @@ export async function onRequestPost(context) {
       date: new Date().toISOString(),
     };
 
-    // 1. Verificación de seguridad Turnstile (Usando variable de entorno)
+    // 1. Verify Turnstile (Using environment variable)
     const token = formData.get("cf-turnstile-response");
     const verifyResponse = await fetch(
       "https://challenges.cloudflare.com/turnstile/v0/siteverify",
@@ -31,25 +31,24 @@ export async function onRequestPost(context) {
       return new Response("Security check failed.", { status: 403 });
     }
 
-    // 2. Guardar en R2
+    // 2. Save to R2
     const fileKey = `inquiries/${Date.now()}-${contactData.email}.json`;
     await env.CONTACTS_BUCKET.put(fileKey, JSON.stringify(contactData), {
       httpMetadata: { contentType: "application/json" },
     });
 
-    // 3. Enviar Correo vía API de Brevo (Usando variable de entorno)
-    // Ya NO pegamos la llave aquí
+    // 3. Send Email via Brevo (Using environment variable)
     await fetch("https://api.brevo.com/v3/smtp/email", {
       method: "POST",
       headers: {
         accept: "application/json",
-        "api-key": env.BREVO_API_KEY,
+        "api-key": env.BREVO_API_KEY, // Key is now safely pulled from Cloudflare
         "content-type": "application/json",
       },
       body: JSON.stringify({
         sender: { name: "Global MFT", email: "info@globalmft.cobranext.com" },
         to: [{ email: contactData.email, name: contactData.first_name }],
-        subject: "Confirmation: We have received your inquiry - Global MFT",
+        subject: "We have received your inquiry - Global MFT",
         htmlContent: `<h2>Thank you ${contactData.first_name}!</h2><p>We received your request about ${contactData.interest}.</p>`,
       }),
     });
