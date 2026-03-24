@@ -11,21 +11,38 @@
       defer
     ></script>
     <style>
-      /* ... (Estilos anteriores se mantienen igual) ... */
-      .success-message {
+      .contact-layout {
+        display: grid;
+        grid-template-columns: 1fr 500px;
+        gap: 72px;
+        align-items: start;
+      }
+      .contact-form-wrap {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 40px;
+        position: relative;
+      }
+      .success-banner {
         display: none;
-        background: #d4edda;
-        color: #155724;
-        padding: 20px;
+        background: rgba(232, 78, 27, 0.1);
+        border: 1px solid var(--orange);
+        color: #fff;
+        padding: 30px;
         border-radius: 8px;
-        margin-bottom: 20px;
         text-align: center;
-        font-weight: bold;
+        margin-bottom: 40px;
       }
       .btn-primary:disabled {
         opacity: 0.5;
         cursor: not-allowed;
         filter: grayscale(1);
+      }
+      @media (max-width: 1024px) {
+        .contact-layout {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
@@ -40,11 +57,17 @@
 
     <section class="section">
       <div class="container">
-        <div id="msg-success" class="success-message">
-          Thank you! Your message has been sent. We will contact you soon.
+        <div id="success-msg" class="success-banner">
+          <h2 style="color: var(--orange); margin-bottom: 10px">
+            Message Sent!
+          </h2>
+          <p>
+            Thank you for reaching out to Global MFT. We have sent a
+            confirmation email to your address.
+          </p>
         </div>
 
-        <div class="contact-layout">
+        <div class="contact-layout" id="main-content">
           <div class="contact-form-wrap">
             <div class="form-title">Request a Consultation</div>
             <form
@@ -55,38 +78,47 @@
             >
               <div class="form-row">
                 <div class="form-group">
-                  <label>First Name</label>
-                  <input type="text" name="first_name" required />
+                  <label>First Name</label
+                  ><input type="text" name="first_name" required />
                 </div>
                 <div class="form-group">
-                  <label>Last Name</label>
-                  <input type="text" name="last_name" required />
+                  <label>Last Name</label
+                  ><input type="text" name="last_name" required />
                 </div>
               </div>
               <div class="form-group">
-                <label>Business Email</label>
-                <input type="email" name="email" required />
+                <label>Company</label
+                ><input type="text" name="company" required />
+              </div>
+              <div class="form-group">
+                <label>Business Email</label
+                ><input type="email" name="email" required />
               </div>
               <div class="form-group">
                 <label>Area of Interest</label>
                 <select name="interest" required>
-                  <option value="General">General Inquiry</option>
-                  <option value="Zelle">Zelle Verification</option>
+                  <option value="IT Strategy">IT Strategy & Planning</option>
+                  <option value="Cloud Solutions">Cloud Solutions</option>
+                  <option value="Zelle Platform">
+                    Zelle Verification Platform
+                  </option>
+                  <option value="Cybersecurity">
+                    Cybersecurity & Compliance
+                  </option>
                 </select>
               </div>
               <div class="form-group">
-                <label>Message</label>
-                <textarea name="message" required></textarea>
+                <label>How Can We Help?</label
+                ><textarea name="message" required></textarea>
               </div>
 
               <div
-                class="turnstile-container"
                 style="display: flex; justify-content: center; margin: 20px 0"
               >
                 <div
                   class="cf-turnstile"
                   data-sitekey="0x4AAAAAACvYqFbuqNwB9lmt"
-                  data-callback="enableBtn"
+                  data-callback="unlockButton"
                 ></div>
               </div>
 
@@ -95,7 +127,7 @@
                 id="submit-btn"
                 class="btn btn-primary"
                 disabled
-                style="width: 100%"
+                style="width: 100%; justify-content: center"
               >
                 Submit Inquiry
               </button>
@@ -105,16 +137,24 @@
       </div>
     </section>
 
+    <div id="site-footer-placeholder"></div>
+    <script src="../js/nav.js"></script>
     <script>
-      function enableBtn() {
+      GMFTNav.inject("../");
+    </script>
+
+    <script>
+      // Activa el botón cuando el usuario pasa el reto de seguridad
+      function unlockButton() {
         document.getElementById("submit-btn").disabled = false;
       }
 
-      // Detectar éxito en la URL
+      // Verifica si la URL tiene el parámetro de éxito para mostrar el banner
       (function () {
-        if (window.location.search.includes("status=success")) {
-          document.getElementById("msg-success").style.display = "block";
-          document.getElementById("contact-form").style.display = "none";
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get("status") === "success") {
+          document.getElementById("success-msg").style.display = "block";
+          document.getElementById("main-content").style.display = "none";
         }
       })();
     </script>
