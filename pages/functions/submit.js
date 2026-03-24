@@ -1,10 +1,14 @@
+// Archivo: pages/functions/submit.js
+// Función: Procesar formulario de contacto, validar Turnstile, guardar en R2 y enviar email vía Brevo.
+// Versión: 1.2.1
+
 export async function onRequestPost(context) {
   const { request, env } = context;
 
   try {
     const formData = await request.formData();
     
-    // 1. Captura de datos del formulario
+    // 1. Recopilación de datos del formulario
     const contactData = {
         first_name: formData.get('first_name'),
         last_name: formData.get('last_name'),
@@ -13,7 +17,7 @@ export async function onRequestPost(context) {
         phone: formData.get('phone') || 'N/A',
         interest: formData.get('interest'),
         message: formData.get('message'),
-        date: new Date().toISOString()
+        timestamp: new Date().toISOString()
     };
 
     // 2. Verificación de seguridad Turnstile
@@ -29,14 +33,20 @@ export async function onRequestPost(context) {
       return new Response('Security check failed. Please refresh and try again.', { status: 403 });
     }
 
-    // 3. Guardar en R2 (Base de datos de objetos)
+    // 3. Escritura en R2 (Base de datos)
+    // Se utiliza el binding CONTACTS_BUCKET configurado en el panel de Cloudflare
     const fileKey = `inquiries/${Date.now()}-${contactData.email}.json`;
-    await env.CONTACTS_BUCKET.put(fileKey, JSON.stringify(contactData), {
-      httpMetadata: { contentType: 'application/json' }
-    });
+    
+    try {
+      await env.CONTACTS_BUCKET.put(fileKey, JSON.stringify(contactData), {
+        httpMetadata: { contentType: 'application/json' }
+      });
+    } catch (r2Error) {
+      console.error("Error al escribir en R2:", r2Error.message);
+      throw new Error("No se pudo guardar el contacto en la base de datos R2.");
+    }
 
-    // 4. Enviar Correo vía API de Brevo
-    // El remitente DEBE ser .pro para coincidir con tu dominio verificado
+    // 4. Envío de Email vía Brevo (dominio .pro verificado)
     const brevoResponse = await fetch('https://api.brevo.com/v3/smtp/email', {
       method: 'POST',
       headers: {
@@ -47,14 +57,12 @@ export async function onRequestPost(context) {
       body: JSON.stringify({
         sender: { name: "Global MFT", email: "info@globalmft.cobranext.pro" },
         to: [{ email: contactData.email, name: contactData.first_name }],
-        subject: "Confirmation: We have received your inquiry - Global MFT",
+        subject: "We have received your inquiry - Global MFT",
         htmlContent: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #eee; padding: 20px;">
-            <h2 style="color: #E84E1B;">Thank you for reaching out, ${contactData.first_name}!</h2>
-            <p>We have successfully received your inquiry regarding <strong>${contactData.interest}</strong>.</p>
-            <p>Our team is currently reviewing your message and one of our consultants will contact you shortly to discuss how we can support <strong>${contactData.company}</strong>.</p>
-            <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
-            <p style="font-size: 11px; color: #999; text-align: center;">This is an automated confirmation from Global MFT.</p>
+          <div style="font-family: sans-serif; padding: 20px; border: 1px solid #eee;">
+            <h2 style="color: #E84E1B;">Thank you, ${contactData.first_name}!</h2>
+            <p>We have received your request regarding <b>${contactData.interest}</b>.</p>
+            <p>Our team will review your message and contact you shortly.</p>
           </div>
         `
       })
@@ -62,14 +70,14 @@ export async function onRequestPost(context) {
 
     if (!brevoResponse.ok) {
       const errorBody = await brevoResponse.text();
-      throw new Error(`Brevo API Error: ${brevoResponse.status} - ${errorBody}`);
+      throw new Error(`Error de Brevo: ${brevoResponse.status} - ${errorBody}`);
     }
 
-    // 5. Éxito: Redirigir con parámetro status
+    // 5. Redirección final con éxito
     return Response.redirect(`${new URL(request.url).origin}/contact.html?status=success`, 303);
 
   } catch (err) {
-    return new Response(`Error: ${err.message}`, { status: 500 });
+    return new Response(`Error en el servidor: ${err.message}`, { status: 500 });
   }
 }
 }

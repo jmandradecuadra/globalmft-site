@@ -4,10 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Global MFT</title>
-    <meta
-      name="description"
-      content="Contact Global MFT for business technology consulting and ISV product inquiries."
-    />
     <link rel="stylesheet" href="../css/global.css" />
     <script
       src="https://challenges.cloudflare.com/turnstile/v0/api.js"
@@ -34,27 +30,10 @@
         background: var(--surface);
         border: 1px solid var(--border);
         border-radius: 8px;
-        transition: border-color var(--transition);
-      }
-      .ci-item:hover {
-        border-color: rgba(232, 78, 27, 0.25);
-      }
-      .ci-icon {
-        width: 40px;
-        height: 40px;
-        background: var(--orange-soft);
-        border: 1px solid rgba(232, 78, 27, 0.2);
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 18px;
-        flex-shrink: 0;
       }
       .ci-body h4 {
         font-size: 10px;
         font-weight: 700;
-        letter-spacing: 0.18em;
         text-transform: uppercase;
         color: var(--muted);
         margin-bottom: 4px;
@@ -62,10 +41,6 @@
       .ci-body p {
         font-size: 14px;
         color: var(--white);
-      }
-      .ci-body a {
-        color: var(--orange);
-        transition: opacity var(--transition);
       }
 
       .contact-form-wrap {
@@ -86,30 +61,18 @@
         background: linear-gradient(90deg, var(--orange), var(--blue-mid));
       }
 
-      /* ESTILO DE LA BARRA VERDE DE ÉXITO */
+      /* BARRA VERDE DE ÉXITO REFORZADA */
       #success-msg {
         display: none;
         margin-top: 24px;
         padding: 16px;
-        background: rgba(40, 167, 69, 0.15);
-        border: 1px solid #28a745;
-        color: #28a745;
+        background: rgba(40, 167, 69, 0.2) !important;
+        border: 1px solid #28a745 !important;
+        color: #28a745 !important;
         border-radius: 8px;
         text-align: center;
         font-size: 14px;
-        font-weight: 600;
-        animation: fadeIn 0.5s ease-out;
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+        font-weight: 700;
       }
 
       .btn-primary:disabled {
@@ -117,7 +80,6 @@
         cursor: not-allowed;
         filter: grayscale(1);
       }
-
       @media (max-width: 1024px) {
         .contact-layout {
           grid-template-columns: 1fr;
@@ -127,15 +89,10 @@
     </style>
   </head>
   <body>
-    <div id="announce-bar"></div>
     <div id="site-header-placeholder"></div>
 
     <div class="page-banner">
       <div class="container">
-        <div class="breadcrumb">
-          <a href="../index.html">Home</a><span>›</span><span>Contact</span>
-        </div>
-        <div class="eyebrow">Get In Touch</div>
         <h1>Start a <span style="color: var(--orange)">Conversation</span></h1>
         <p
           style="
@@ -145,9 +102,7 @@
             margin-top: 16px;
           "
         >
-          Whether you need a technology partner for a specific initiative or
-          want a comprehensive assessment of your current IT landscape, we're
-          ready to help.
+          We are ready to assess your IT landscape and help your business grow.
         </p>
       </div>
     </div>
@@ -156,77 +111,26 @@
       <div class="container">
         <div class="contact-layout">
           <div>
-            <div class="reveal">
-              <div class="eyebrow">Contact Information</div>
-              <h2 style="margin-bottom: 32px">
-                Reach <span class="text-orange">Us</span>
-              </h2>
-            </div>
-            <div class="contact-info reveal">
+            <h2 style="margin-bottom: 32px">
+              Reach <span class="text-orange">Us</span>
+            </h2>
+            <div class="contact-info">
               <div class="ci-item">
-                <div class="ci-icon">🌐</div>
                 <div class="ci-body">
                   <h4>Website</h4>
-                  <p>
-                    <a href="https://globalmft.cobranext.pro"
-                      >globalmft.cobranext.pro</a
-                    >
-                  </p>
+                  <p>globalmft.cobranext.pro</p>
                 </div>
               </div>
               <div class="ci-item">
-                <div class="ci-icon">📧</div>
                 <div class="ci-body">
-                  <h4>General Inquiries</h4>
-                  <p>
-                    <a href="mailto:info@globalmft.cobranext.pro"
-                      >info@globalmft.cobranext.pro</a
-                    >
-                  </p>
+                  <h4>Email</h4>
+                  <p>info@globalmft.cobranext.pro</p>
                 </div>
               </div>
-              <div class="ci-item">
-                <div class="ci-icon">🖥️</div>
-                <div class="ci-body">
-                  <h4>ISV Product Support</h4>
-                  <p>
-                    <a href="mailto:isv@globalmft.cobranext.pro"
-                      >isv@globalmft.cobranext.pro</a
-                    >
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div
-              style="
-                margin-top: 32px;
-                padding: 24px;
-                background: var(--surface);
-                border: 1px solid var(--border);
-                border-radius: 8px;
-              "
-              class="reveal"
-            >
-              <h4
-                style="
-                  font-size: 13px;
-                  font-weight: 700;
-                  color: var(--white);
-                  margin-bottom: 8px;
-                "
-              >
-                Response Times
-              </h4>
-              <p style="font-size: 13px; color: var(--muted); line-height: 1.7">
-                General inquiries: within 1 business day. ISV product requests:
-                within 2 business days. For urgent matters, note "URGENT" in
-                your subject line.
-              </p>
             </div>
           </div>
 
-          <div class="contact-form-wrap reveal reveal-delay-2">
+          <div class="contact-form-wrap">
             <div
               class="form-title"
               style="
@@ -238,7 +142,6 @@
             >
               Request a Consultation
             </div>
-
             <form
               class="contact-form"
               id="contact-form"
@@ -266,7 +169,16 @@
                 </div>
               </div>
               <div class="form-group">
-                <label>Company / Organization</label
+                <label>Email</label
+                ><input
+                  type="email"
+                  name="email"
+                  placeholder="jane@acmecorp.com"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label>Company</label
                 ><input
                   type="text"
                   name="company"
@@ -275,32 +187,18 @@
                 />
               </div>
               <div class="form-group">
-                <label>Business Email</label
-                ><input
-                  type="email"
-                  name="email"
-                  placeholder="jane@acmecorp.com"
-                  required
-                />
-              </div>
-
-              <div class="form-group">
-                <label>Area of Interest</label>
+                <label>Interest</label>
                 <select name="interest" required>
                   <option value="">Select a service...</option>
                   <option value="IT Strategy">IT Strategy & Planning</option>
                   <option value="Cloud Solutions">Cloud Solutions</option>
-                  <option value="Cybersecurity">
-                    Cybersecurity & Compliance
-                  </option>
                   <option value="Zelle Platform">
                     Zelle Verification Platform
                   </option>
                 </select>
               </div>
-
               <div class="form-group">
-                <label>How Can We Help?</label
+                <label>Message</label
                 ><textarea
                   name="message"
                   placeholder="Describe your needs..."
@@ -337,26 +235,20 @@
       </div>
     </section>
 
-    <div id="site-footer-placeholder"></div>
     <script src="../js/nav.js"></script>
     <script>
       GMFTNav.inject("../");
     </script>
-    <script src="../js/main.js"></script>
 
     <script>
       function unlock() {
         document.getElementById("submit-btn").disabled = false;
       }
 
-      // Detectar éxito en la URL y mostrar barra verde
       (function () {
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get("status") === "success") {
-          const successBar = document.getElementById("success-msg");
-          successBar.style.display = "block";
-
-          // Deshabilitar el botón para evitar re-envíos
+          document.getElementById("success-msg").style.display = "block";
           document.getElementById("submit-btn").disabled = true;
           document.getElementById("submit-btn").innerHTML = "Message Sent";
         }
