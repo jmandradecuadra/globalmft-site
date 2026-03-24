@@ -61,12 +61,12 @@
         background: linear-gradient(90deg, var(--orange), var(--blue-mid));
       }
 
-      /* BARRA VERDE DE ÉXITO REFORZADA */
+      /* BARRA VERDE DE ÉXITO */
       #success-msg {
         display: none;
         margin-top: 24px;
         padding: 16px;
-        background: rgba(40, 167, 69, 0.2) !important;
+        background: rgba(40, 167, 69, 0.15) !important;
         border: 1px solid #28a745 !important;
         color: #28a745 !important;
         border-radius: 8px;
@@ -198,10 +198,10 @@
                 </select>
               </div>
               <div class="form-group">
-                <label>Message</label
+                <label>How can we help?</label
                 ><textarea
                   name="message"
-                  placeholder="Describe your needs..."
+                  placeholder="Message..."
                   required
                 ></textarea>
               </div>
@@ -241,10 +241,12 @@
     </script>
 
     <script>
+      // Desbloquea el botón al completar el Turnstile
       function unlock() {
         document.getElementById("submit-btn").disabled = false;
       }
 
+      // Manejo del estado de éxito
       (function () {
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get("status") === "success") {
