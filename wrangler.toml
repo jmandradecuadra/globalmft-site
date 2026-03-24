@@ -1,0 +1,6 @@
+name = "globalmft-site"
+compatibility_date = "2026-03-24"
+
+# Si tus archivos HTML están en la raíz, usa "."
+# Si están en una carpeta llamada 'public', usa "./public"
+pages_build_output_dir = "."
