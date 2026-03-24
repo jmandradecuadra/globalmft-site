@@ -9,13 +9,11 @@
       content="Contact Global MFT for business technology consulting, ISV product inquiries, and partnership opportunities."
     />
     <link rel="stylesheet" href="../css/global.css" />
-
     <script
       src="https://challenges.cloudflare.com/turnstile/v0/api.js"
       async
       defer
     ></script>
-
     <style>
       .contact-layout {
         display: grid;
@@ -98,7 +96,7 @@
         font-family: "Sora", sans-serif;
       }
 
-      /* 2. Estilo para el contenedor de Turnstile */
+      /* Estilo para el contenedor de Turnstile */
       .turnstile-container {
         margin: 20px 0;
         display: flex;
@@ -345,26 +343,40 @@
                   />
                 </svg>
               </button>
-            <form class="contact-form" id="contact-form" method="POST" action="/submit">
+            </form>
           </div>
         </div>
       </div>
     </section>
 
     <div id="site-footer-placeholder"></div>
-
     <script src="../js/nav.js"></script>
     <script>
       GMFTNav.inject("../");
     </script>
     <script src="../js/main.js"></script>
     <script>
+      // Validar Turnstile antes de enviar el formulario
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (e) {
+          const turnstileResponse = document.querySelector(
+            '[name="cf-turnstile-response"]',
+          ).value;
+          if (!turnstileResponse) {
+            e.preventDefault();
+            alert(
+              "Por favor, completa la verificación de seguridad (Turnstile).",
+            );
+          }
+        });
+
       // Pre-select interest from URL param
       (function () {
         const p = new URLSearchParams(window.location.search);
         const interest = p.get("interest");
         if (interest) {
-          const sel = document.querySelector('select[name="interest"]');
+          const sel = document.querySelector('select[name=\"interest\"]');
           if (sel) {
             for (let opt of sel.options) {
               if (
