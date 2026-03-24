@@ -96,11 +96,12 @@
         font-family: "Sora", sans-serif;
       }
 
-      /* Estilo para el contenedor de Turnstile */
+      /* Contenedor de Turnstile */
       .turnstile-container {
         margin: 20px 0;
         display: flex;
         justify-content: center;
+        min-height: 65px; /* Evita saltos de layout mientras carga */
       }
 
       @media (max-width: 1024px) {
@@ -319,11 +320,13 @@
                 <div
                   class="cf-turnstile"
                   data-sitekey="0x4AAAAAACvYqFbuqNwB9lmt"
+                  data-callback="onTurnstileSuccess"
                 ></div>
               </div>
 
               <button
                 type="submit"
+                id="submit-btn"
                 class="btn btn-primary"
                 style="
                   width: 100%;
@@ -356,27 +359,39 @@
     </script>
     <script src="../js/main.js"></script>
     <script>
-      // Validar Turnstile antes de enviar el formulario
-      document
-        .getElementById("contact-form")
-        .addEventListener("submit", function (e) {
-          const turnstileResponse = document.querySelector(
-            '[name="cf-turnstile-response"]',
-          ).value;
-          if (!turnstileResponse) {
-            e.preventDefault();
-            alert(
-              "Por favor, completa la verificación de seguridad (Turnstile).",
-            );
-          }
-        });
+      // Función para manejar la validación estricta antes de que actúe main.js
+      (function () {
+        const form = document.getElementById("contact-form");
+
+        form.addEventListener(
+          "submit",
+          function (e) {
+            // Buscamos el token de Turnstile
+            const turnstileResponse = form.querySelector(
+              '[name="cf-turnstile-response"]',
+            ).value;
+
+            if (!turnstileResponse) {
+              // Detenemos TODO el proceso de envío
+              e.preventDefault();
+              e.stopImmediatePropagation();
+
+              alert(
+                "Please complete the security check (Turnstile) before submitting.",
+              );
+              return false;
+            }
+          },
+          true,
+        ); // El parámetro 'true' hace que esta validación se ejecute ANTES que otras
+      })();
 
       // Pre-select interest from URL param
       (function () {
         const p = new URLSearchParams(window.location.search);
         const interest = p.get("interest");
         if (interest) {
-          const sel = document.querySelector('select[name=\"interest\"]');
+          const sel = document.querySelector('select[name="interest"]');
           if (sel) {
             for (let opt of sel.options) {
               if (
