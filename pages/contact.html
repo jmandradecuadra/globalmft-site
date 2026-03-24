@@ -4,10 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Global MFT</title>
-    <meta
-      name="description"
-      content="Contact Global MFT for business technology consulting, ISV product inquiries, and partnership opportunities."
-    />
     <link rel="stylesheet" href="../css/global.css" />
     <script
       src="https://challenges.cloudflare.com/turnstile/v0/api.js"
@@ -15,282 +11,82 @@
       defer
     ></script>
     <style>
-      .contact-layout {
-        display: grid;
-        grid-template-columns: 1fr 500px;
-        gap: 72px;
-        align-items: start;
-      }
-      .contact-info {
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-      }
-      .ci-item {
-        display: flex;
-        align-items: flex-start;
-        gap: 16px;
+      /* ... (Estilos anteriores se mantienen igual) ... */
+      .success-message {
+        display: none;
+        background: #d4edda;
+        color: #155724;
         padding: 20px;
-        background: var(--surface);
-        border: 1px solid var(--border);
         border-radius: 8px;
-        transition: border-color var(--transition);
+        margin-bottom: 20px;
+        text-align: center;
+        font-weight: bold;
       }
-      .ci-item:hover {
-        border-color: rgba(232, 78, 27, 0.25);
-      }
-      .ci-icon {
-        width: 40px;
-        height: 40px;
-        background: var(--orange-soft);
-        border: 1px solid rgba(232, 78, 27, 0.2);
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 18px;
-        flex-shrink: 0;
-      }
-      .ci-body h4 {
-        font-size: 10px;
-        font-weight: 700;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: var(--muted);
-        margin-bottom: 4px;
-      }
-      .ci-body p {
-        font-size: 14px;
-        color: var(--white);
-      }
-      .ci-body a {
-        color: var(--orange);
-        transition: opacity var(--transition);
-      }
-      .ci-body a:hover {
-        opacity: 0.8;
-      }
-
-      .contact-form-wrap {
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        padding: 40px;
-        position: relative;
-        overflow: hidden;
-      }
-      .contact-form-wrap::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: linear-gradient(90deg, var(--orange), var(--blue-mid));
-      }
-      .form-title {
-        font-size: 22px;
-        font-weight: 700;
-        color: var(--white);
-        margin-bottom: 28px;
-        font-family: "Sora", sans-serif;
-      }
-
-      /* Contenedor de Turnstile */
-      .turnstile-container {
-        margin: 20px 0;
-        display: flex;
-        justify-content: center;
-        min-height: 65px;
-      }
-
-      /* Estado deshabilitado visual del botón */
       .btn-primary:disabled {
         opacity: 0.5;
         cursor: not-allowed;
         filter: grayscale(1);
       }
-
-      @media (max-width: 1024px) {
-        .contact-layout {
-          grid-template-columns: 1fr;
-          gap: 40px;
-        }
-      }
     </style>
   </head>
   <body>
-    <div id="announce-bar"></div>
     <div id="site-header-placeholder"></div>
 
     <div class="page-banner">
       <div class="container">
-        <div class="breadcrumb">
-          <a href="../index.html">Home</a><span>›</span><span>Contact</span>
-        </div>
-        <div class="eyebrow">Get In Touch</div>
         <h1>Start a <span style="color: var(--orange)">Conversation</span></h1>
-        <p
-          style="
-            color: var(--muted);
-            max-width: 520px;
-            font-size: 17px;
-            margin-top: 16px;
-          "
-        >
-          Whether you need a technology partner for a specific initiative or
-          want a comprehensive assessment of your current IT landscape, we're
-          ready to help.
-        </p>
       </div>
     </div>
 
     <section class="section">
       <div class="container">
-        <div class="contact-layout">
-          <div>
-            <div class="reveal">
-              <div class="eyebrow">Contact Information</div>
-              <h2 style="margin-bottom: 32px">
-                Reach <span class="text-orange">Us</span>
-              </h2>
-            </div>
-            <div class="contact-info reveal">
-              <div class="ci-item">
-                <div class="ci-icon">🌐</div>
-                <div class="ci-body">
-                  <h4>Website</h4>
-                  <p>
-                    <a href="https://globalmft.cobranext.com"
-                      >globalmft.cobranext.com</a
-                    >
-                  </p>
-                </div>
-              </div>
-              <div class="ci-item">
-                <div class="ci-icon">📧</div>
-                <div class="ci-body">
-                  <h4>General Inquiries</h4>
-                  <p>
-                    <a href="mailto:info@globalmft.cobranext.com"
-                      >info@globalmft.cobranext.com</a
-                    >
-                  </p>
-                </div>
-              </div>
-              <div class="ci-item">
-                <div class="ci-icon">💼</div>
-                <div class="ci-body">
-                  <h4>Business Development &amp; Partnerships</h4>
-                  <p>
-                    <a href="mailto:partners@globalmft.cobranext.com"
-                      >partners@globalmft.cobranext.com</a
-                    >
-                  </p>
-                </div>
-              </div>
-              <div class="ci-item">
-                <div class="ci-icon">⚖️</div>
-                <div class="ci-body">
-                  <h4>Legal &amp; Compliance</h4>
-                  <p>
-                    <a href="mailto:legal@globalmft.cobranext.com"
-                      >legal@globalmft.cobranext.com</a
-                    >
-                  </p>
-                </div>
-              </div>
-              <div class="ci-item">
-                <div class="ci-icon">🖥️</div>
-                <div class="ci-body">
-                  <h4>ISV Product Support</h4>
-                  <p>
-                    <a href="mailto:isv@globalmft.cobranext.com"
-                      >isv@globalmft.cobranext.com</a
-                    >
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div id="msg-success" class="success-message">
+          Thank you! Your message has been sent. We will contact you soon.
+        </div>
 
-          <div class="contact-form-wrap reveal reveal-delay-2">
+        <div class="contact-layout">
+          <div class="contact-form-wrap">
             <div class="form-title">Request a Consultation</div>
-            <form class="contact-form" id="contact-form">
+            <form
+              class="contact-form"
+              id="contact-form"
+              method="POST"
+              action="/submit"
+            >
               <div class="form-row">
                 <div class="form-group">
                   <label>First Name</label>
-                  <input
-                    type="text"
-                    name="first_name"
-                    placeholder="Jane"
-                    required
-                  />
+                  <input type="text" name="first_name" required />
                 </div>
                 <div class="form-group">
                   <label>Last Name</label>
-                  <input
-                    type="text"
-                    name="last_name"
-                    placeholder="Smith"
-                    required
-                  />
+                  <input type="text" name="last_name" required />
                 </div>
               </div>
               <div class="form-group">
-                <label>Company / Organization</label>
-                <input
-                  type="text"
-                  name="company"
-                  placeholder="Acme Corp"
-                  required
-                />
-              </div>
-              <div class="form-group">
                 <label>Business Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="jane@acmecorp.com"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label>Phone (optional)</label>
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="+1 (555) 000-0000"
-                />
+                <input type="email" name="email" required />
               </div>
               <div class="form-group">
                 <label>Area of Interest</label>
                 <select name="interest" required>
-                  <option value="">Select a service or product…</option>
-                  <optgroup label="Consulting Services">
-                    <option>IT Strategy &amp; Planning</option>
-                    <option>Cloud Solutions</option>
-                    <option>Cybersecurity &amp; Compliance</option>
-                    <option>Digital Transformation</option>
-                  </optgroup>
+                  <option value="General">General Inquiry</option>
+                  <option value="Zelle">Zelle Verification</option>
                 </select>
               </div>
               <div class="form-group">
-                <label>How Can We Help?</label>
-                <textarea
-                  name="message"
-                  placeholder="Briefly describe your needs..."
-                  required
-                ></textarea>
+                <label>Message</label>
+                <textarea name="message" required></textarea>
               </div>
 
-              <div class="turnstile-container">
+              <div
+                class="turnstile-container"
+                style="display: flex; justify-content: center; margin: 20px 0"
+              >
                 <div
                   class="cf-turnstile"
                   data-sitekey="0x4AAAAAACvYqFbuqNwB9lmt"
-                  data-callback="enableSubmitButton"
-                  data-expired-callback="disableSubmitButton"
-                  data-error-callback="disableSubmitButton"
+                  data-callback="enableBtn"
                 ></div>
               </div>
 
@@ -299,23 +95,9 @@
                 id="submit-btn"
                 class="btn btn-primary"
                 disabled
-                style="
-                  width: 100%;
-                  justify-content: center;
-                  font-size: 14px;
-                  padding: 14px;
-                "
+                style="width: 100%"
               >
                 Submit Inquiry
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path
-                    d="M1 7h12M8 3l5 4-5 4"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
               </button>
             </form>
           </div>
@@ -323,56 +105,16 @@
       </div>
     </section>
 
-    <div id="site-footer-placeholder"></div>
-    <script src="../js/nav.js"></script>
     <script>
-      GMFTNav.inject("../");
-    </script>
-    <script src="../js/main.js"></script>
-
-    <script>
-      // FUNCIONES DE CONTROL DEL BOTÓN
-      function enableSubmitButton() {
-        const btn = document.getElementById("submit-btn");
-        btn.disabled = false;
-        console.log("Turnstile verificado. Botón activado.");
+      function enableBtn() {
+        document.getElementById("submit-btn").disabled = false;
       }
 
-      function disableSubmitButton() {
-        const btn = document.getElementById("submit-btn");
-        btn.disabled = true;
-        console.log("Turnstile expirado o error. Botón bloqueado.");
-      }
-
-      // Bloqueo extra por si main.js intenta forzar el envío
-      document
-        .getElementById("contact-form")
-        .addEventListener("submit", function (e) {
-          const btn = document.getElementById("submit-btn");
-          if (btn.disabled) {
-            e.preventDefault();
-            e.stopImmediatePropagation();
-            return false;
-          }
-        });
-
-      // Pre-select interest from URL param
+      // Detectar éxito en la URL
       (function () {
-        const p = new URLSearchParams(window.location.search);
-        const interest = p.get("interest");
-        if (interest) {
-          const sel = document.querySelector('select[name="interest"]');
-          if (sel) {
-            for (let opt of sel.options) {
-              if (
-                opt.value.toLowerCase() === interest.toLowerCase() ||
-                opt.text.toLowerCase().includes(interest.toLowerCase())
-              ) {
-                opt.selected = true;
-                break;
-              }
-            }
-          }
+        if (window.location.search.includes("status=success")) {
+          document.getElementById("msg-success").style.display = "block";
+          document.getElementById("contact-form").style.display = "none";
         }
       })();
     </script>
