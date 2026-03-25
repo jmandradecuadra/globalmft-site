@@ -1,71 +1,82 @@
 export async function onRequestPost(context) {
   const { request, env } = context;
-  const formData = await request.formData();
 
-  // 1. Datos del Formulario
-  const data = {
-    first_name: formData.get("first_name"),
-    last_name: formData.get("last_name"),
-    company: formData.get("company"),
-    email: formData.get("email"),
-    phone: formData.get("phone"),
-    interest: formData.get("interest"),
-    message: formData.get("message"),
-    timestamp: new Date().toISOString(),
-  };
+  try {
+    const formData = await request.formData();
 
-  // 2. Validación de Turnstile
-  const token = formData.get("cf-turnstile-response");
-  const SECRET_KEY = "0x4AAAAAACvYqIoHaCVKBvb4bfBQwyADvSM";
+    // 1. Datos del formulario
+    const data = {
+      first_name: formData.get("first_name"),
+      last_name: formData.get("last_name"),
+      company: formData.get("company"),
+      email: formData.get("email"),
+      phone: formData.get("phone") || "N/A",
+      interest: formData.get("interest"),
+      message: formData.get("message"),
+      timestamp: new Date().toISOString(),
+    };
 
-  const verifyResponse = await fetch(
-    "https://challenges.cloudflare.com/turnstile/v0/siteverify",
-    {
+    // 2. Validación Turnstile
+    const token = formData.get("cf-turnstile-response");
+    const verifyResponse = await fetch(
+      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `secret=${env.TURNSTILE_SECRET_KEY}&response=${token}`,
+      },
+    );
+
+    const outcome = await verifyResponse.json();
+    if (!outcome.success) {
+      return new Response("Security check failed.", { status: 403 });
+    }
+
+    // 3. Guardar en R2 → contacts-requests/
+    const safeEmail = data.email.replace(/[^a-zA-Z0-9.-]/g, "_");
+    const fileKey = `contacts-requests/${Date.now()}_${safeEmail}.json`;
+
+    await env.GLOBALMFT_CONTACTS.put(fileKey, JSON.stringify(data, null, 2), {
+      httpMetadata: { contentType: "application/json" },
+    });
+
+    // 4. Enviar correo de confirmación vía Brevo
+    await fetch("https://api.brevo.com/v3/smtp/email", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: `secret=${SECRET_KEY}&response=${token}`,
-    },
-  );
-  const outcome = await verifyResponse.json();
-
-  if (!outcome.success) {
-    return new Response("Error de seguridad", { status: 403 });
-  }
-
-  // 3. Guardar en R2 (Base de datos de objetos)
-  // El nombre del archivo será: año-mes-dia-email.json
-  const fileName = `contact_${Date.now()}_${data.email}.json`;
-  await env.CONTACTS_BUCKET.put(fileName, JSON.stringify(data), {
-    httpMetadata: { contentType: "application/json" },
-  });
-
-  // 4. Enviar Correo de Confirmación vía Resend
-  // Nota: Debes añadir RESEND_API_KEY en las variables de entorno de Cloudflare
-  await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${env.RESEND_API_KEY}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from: "Global MFT <info@globalmft.cobranext.com>",
-      to: [data.email],
-      subject: "We have received your inquiry - Global MFT",
-      html: `
-        <div style="font-family: sans-serif; color: #333;">
+      headers: {
+        accept: "application/json",
+        "api-key": env.BREVO_API_KEY,
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        sender: {
+          name: "Global MFT",
+          email: "contacto@globalmft.cobranext.pro",
+        },
+        to: [
+          {
+            email: data.email,
+            name: data.first_name,
+          },
+        ],
+        subject: "We have received your inquiry - Global MFT",
+        htmlContent: `
           <h2>Hello ${data.first_name},</h2>
-          <p>Thank you for reaching out to <strong>Global MFT</strong>.</p>
-          <p>We have received your inquiry regarding <strong>${data.interest}</strong>. Our team is reviewing your information and will contact you shortly.</p>
+          <p>Thank you for contacting <strong>Global MFT</strong>.</p>
+          <p>We have received your inquiry regarding <strong>${data.interest}</strong>.</p>
+          <p>Our team will review your message and get back to you shortly.</p>
           <hr>
-          <p style="font-size: 12px; color: #666;">This is an automated confirmation. Please do not reply to this email.</p>
-        </div>
-      `,
-    }),
-  });
+          <p style="font-size:12px;color:#666;">This is an automated confirmation. Please do not reply.</p>
+        `,
+      }),
+    });
 
-  // Redirigir a una página de éxito (puedes crear success.html)
-  return Response.redirect(
-    `${new URL(request.url).origin}/contact.html?status=success`,
-    303,
-  );
+    // 5. Redirección final
+    return Response.redirect(
+      `${new URL(request.url).origin}/contact.html?status=success`,
+      303,
+    );
+  } catch (err) {
+    return new Response(`Server Error: ${err.message}`, { status: 500 });
+  }
 }

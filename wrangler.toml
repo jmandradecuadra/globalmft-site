@@ -1,7 +1,10 @@
 name = "globalmft-site"
 compatibility_date = "2026-03-24"
+
+# Cloudflare Pages build output
 pages_build_output_dir = "."
 
+# R2 bucket para almacenar solicitudes de contacto
 [[r2_buckets]]
-binding = "CONTACTS_BUCKET" # Este debe ser el nombre exacto que usas en env.CONTACTS_BUCKET
+binding = "GLOBALMFT_CONTACTS"
 bucket_name = "globalmft-contacts"
