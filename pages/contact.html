@@ -3,12 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact — Global MFT</title>
+    <title>Contact Global MFT</title>
     <meta
       name="description"
-      content="Contact Global MFT for enterprise technology consulting, ISV product inquiries, and partnership opportunities."
+      content="Contact Global MFT for business technology consulting and ISV product inquiries."
     />
     <link rel="stylesheet" href="../css/global.css" />
+    <script
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+      async
+      defer
+    ></script>
     <style>
       .contact-layout {
         display: grid;
@@ -62,9 +67,7 @@
         color: var(--orange);
         transition: opacity var(--transition);
       }
-      .ci-body a:hover {
-        opacity: 0.8;
-      }
+
       .contact-form-wrap {
         background: var(--surface);
         border: 1px solid var(--border);
@@ -82,13 +85,27 @@
         height: 3px;
         background: linear-gradient(90deg, var(--orange), var(--blue-mid));
       }
-      .form-title {
-        font-size: 22px;
-        font-weight: 700;
-        color: var(--white);
-        margin-bottom: 28px;
-        font-family: "Sora", sans-serif;
+
+      /* ESTILO DEL MENSAJE DE ÉXITO (VERDE) */
+      #success-msg {
+        display: none;
+        margin-top: 20px;
+        padding: 15px;
+        background: rgba(40, 167, 69, 0.15);
+        border: 1px solid #28a745;
+        color: #28a745;
+        border-radius: 6px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 600;
       }
+
+      .btn-primary:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        filter: grayscale(1);
+      }
+
       @media (max-width: 1024px) {
         .contact-layout {
           grid-template-columns: 1fr;
@@ -97,7 +114,6 @@
       }
     </style>
   </head>
-
   <body>
     <div id="announce-bar"></div>
     <div id="site-header-placeholder"></div>
@@ -107,10 +123,8 @@
         <div class="breadcrumb">
           <a href="../index.html">Home</a><span>›</span><span>Contact</span>
         </div>
-        <div class="eyebrow">Contact Us</div>
-        <h1>
-          Let's Start a <span style="color: var(--orange)">Conversation</span>
-        </h1>
+        <div class="eyebrow">Get In Touch</div>
+        <h1>Start a <span style="color: var(--orange)">Conversation</span></h1>
         <p
           style="
             color: var(--muted);
@@ -120,7 +134,7 @@
           "
         >
           Whether you need a technology partner for a specific initiative or
-          want a comprehensive assessment of your current IT landscape, we are
+          want a comprehensive assessment of your current IT landscape, we're
           ready to help.
         </p>
       </div>
@@ -133,10 +147,9 @@
             <div class="reveal">
               <div class="eyebrow">Contact Information</div>
               <h2 style="margin-bottom: 32px">
-                How to <span class="text-orange">Reach Us</span>
+                Reach <span class="text-orange">Us</span>
               </h2>
             </div>
-
             <div class="contact-info reveal">
               <div class="ci-item">
                 <div class="ci-icon">🌐</div>
@@ -149,7 +162,6 @@
                   </p>
                 </div>
               </div>
-
               <div class="ci-item">
                 <div class="ci-icon">📧</div>
                 <div class="ci-body">
@@ -161,31 +173,6 @@
                   </p>
                 </div>
               </div>
-
-              <div class="ci-item">
-                <div class="ci-icon">💼</div>
-                <div class="ci-body">
-                  <h4>Business Development & Partnerships</h4>
-                  <p>
-                    <a href="mailto:partners@globalmft.cobranext.com"
-                      >partners@globalmft.cobranext.com</a
-                    >
-                  </p>
-                </div>
-              </div>
-
-              <div class="ci-item">
-                <div class="ci-icon">⚖️</div>
-                <div class="ci-body">
-                  <h4>Legal & Compliance</h4>
-                  <p>
-                    <a href="mailto:legal@globalmft.cobranext.com"
-                      >legal@globalmft.cobranext.com</a
-                    >
-                  </p>
-                </div>
-              </div>
-
               <div class="ci-item">
                 <div class="ci-icon">🖥️</div>
                 <div class="ci-body">
@@ -221,133 +208,117 @@
               </h4>
               <p style="font-size: 13px; color: var(--muted); line-height: 1.7">
                 General inquiries: within 1 business day. ISV product requests:
-                within 2 business days. Legal and compliance matters: within 3
-                business days. For urgent matters, include "URGENT" in the
-                subject line.
+                within 2 business days. For urgent matters, note "URGENT" in
+                your subject line.
               </p>
             </div>
           </div>
 
-          <!-- RIGHT COLUMN — FORM -->
           <div class="contact-form-wrap reveal reveal-delay-2">
-            <div class="form-title">Request a Consultation</div>
+            <div
+              class="form-title"
+              style="
+                font-size: 22px;
+                font-weight: 700;
+                color: #fff;
+                margin-bottom: 28px;
+              "
+            >
+              Request a Consultation
+            </div>
 
-            <form class="contact-form" id="contact-form">
+            <form
+              class="contact-form"
+              id="contact-form"
+              method="POST"
+              action="/submit"
+            >
               <div class="form-row">
                 <div class="form-group">
-                  <label>First Name</label>
-                  <input
+                  <label>First Name</label
+                  ><input
                     type="text"
                     name="first_name"
-                    placeholder="John"
+                    placeholder="Jane"
                     required
                   />
                 </div>
-
                 <div class="form-group">
-                  <label>Last Name</label>
-                  <input
+                  <label>Last Name</label
+                  ><input
                     type="text"
                     name="last_name"
-                    placeholder="Doe"
+                    placeholder="Smith"
                     required
                   />
                 </div>
               </div>
-
               <div class="form-group">
-                <label>Company / Organization</label>
-                <input
+                <label>Company / Organization</label
+                ><input
                   type="text"
                   name="company"
-                  placeholder="My Company LLC"
+                  placeholder="Acme Corp"
                   required
                 />
               </div>
-
               <div class="form-group">
-                <label>Corporate Email</label>
-                <input
+                <label>Business Email</label
+                ><input
                   type="email"
                   name="email"
-                  placeholder="john@mycompany.com"
+                  placeholder="jane@acmecorp.com"
                   required
-                />
-              </div>
-
-              <div class="form-group">
-                <label>Phone (optional)</label>
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="+1 (555) 000-0000"
                 />
               </div>
 
               <div class="form-group">
                 <label>Area of Interest</label>
                 <select name="interest" required>
-                  <option value="">Select a service or product…</option>
-
-                  <optgroup label="Consulting Services">
-                    <option>IT Strategy & Planning</option>
-                    <option>Cloud Solutions</option>
-                    <option>Cybersecurity & Compliance</option>
-                    <option>Digital Transformation</option>
-                    <option>Business Analytics</option>
-                    <option>Telecom & Connectivity</option>
-                    <option>Operational Efficiency</option>
-                  </optgroup>
-
-                  <optgroup label="ISV Products">
-                    <option value="zelle">Zelle Verification Platform</option>
-                    <option value="ixm">IXM Portal (Waitlist)</option>
-                    <option>WhatsApp Business Compliance</option>
-                  </optgroup>
-
-                  <optgroup label="Other">
-                    <option>Partnership / Reseller</option>
-                    <option>General Inquiry</option>
-                  </optgroup>
+                  <option value="">Select a service...</option>
+                  <option value="IT Strategy">IT Strategy & Planning</option>
+                  <option value="Cloud Solutions">Cloud Solutions</option>
+                  <option value="Cybersecurity">
+                    Cybersecurity & Compliance
+                  </option>
+                  <option value="Zelle Platform">
+                    Zelle Verification Platform
+                  </option>
                 </select>
               </div>
 
               <div class="form-group">
-                <label>How Can We Help?</label>
-                <textarea
+                <label>How Can We Help?</label
+                ><textarea
                   name="message"
-                  placeholder="Describe your needs, challenges, or the initiative you're working on…"
+                  placeholder="Describe your needs..."
                   required
                 ></textarea>
               </div>
 
-              <!-- TURNSTILE -->
               <div
-                class="cf-turnstile"
-                data-sitekey="0x4AAAAAACvYqFbuqNwB9lmt"
-              ></div>
+                style="display: flex; justify-content: center; margin: 20px 0"
+              >
+                <div
+                  class="cf-turnstile"
+                  data-sitekey="0x4AAAAAACvYqFbuqNwB9lmt"
+                  data-callback="unlock"
+                ></div>
+              </div>
 
               <button
                 type="submit"
+                id="submit-btn"
                 class="btn btn-primary"
-                style="
-                  width: 100%;
-                  justify-content: center;
-                  font-size: 14px;
-                  padding: 14px;
-                "
+                disabled
+                style="width: 100%; justify-content: center; padding: 14px"
               >
                 Submit Inquiry
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path
-                    d="M1 7h12M8 3l5 4-5 4"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
               </button>
+
+              <div id="success-msg">
+                ✓ Inquiry sent successfully. We will contact you soon!
+              </div>
             </form>
           </div>
         </div>
@@ -355,39 +326,27 @@
     </section>
 
     <div id="site-footer-placeholder"></div>
-
     <script src="../js/nav.js"></script>
     <script>
-      GMFTNav.inject("../", "en");
+      GMFTNav.inject("../");
     </script>
     <script src="../js/main.js"></script>
 
-    <!-- TURNSTILE SCRIPT -->
-    <script
-      src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-      async
-      defer
-    ></script>
-
     <script>
+      function unlock() {
+        document.getElementById("submit-btn").disabled = false;
+      }
+
       (function () {
-        var p = new URLSearchParams(window.location.search);
-        var interest = p.get("interest");
-        if (interest) {
-          var sel = document.querySelector('select[name="interest"]');
-          if (sel) {
-            for (var i = 0; i < sel.options.length; i++) {
-              if (
-                sel.options[i].value.toLowerCase() === interest.toLowerCase() ||
-                sel.options[i].text
-                  .toLowerCase()
-                  .indexOf(interest.toLowerCase()) !== -1
-              ) {
-                sel.options[i].selected = true;
-                break;
-              }
-            }
-          }
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get("status") === "success") {
+          // Mostrar el mensaje verde abajo
+          document.getElementById("success-msg").style.display = "block";
+          // Opcional: Deshabilitar campos para evitar doble envío
+          const fields = document
+            .getElementById("contact-form")
+            .querySelectorAll("input, select, textarea, button");
+          fields.forEach((f) => (f.disabled = true));
         }
       })();
     </script>
