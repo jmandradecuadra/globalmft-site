@@ -97,6 +97,7 @@
       }
     </style>
   </head>
+
   <body>
     <div id="announce-bar"></div>
     <div id="site-header-placeholder"></div>
@@ -135,6 +136,7 @@
                 How to <span class="text-orange">Reach Us</span>
               </h2>
             </div>
+
             <div class="contact-info reveal">
               <div class="ci-item">
                 <div class="ci-icon">🌐</div>
@@ -147,6 +149,7 @@
                   </p>
                 </div>
               </div>
+
               <div class="ci-item">
                 <div class="ci-icon">📧</div>
                 <div class="ci-body">
@@ -158,6 +161,7 @@
                   </p>
                 </div>
               </div>
+
               <div class="ci-item">
                 <div class="ci-icon">💼</div>
                 <div class="ci-body">
@@ -169,6 +173,7 @@
                   </p>
                 </div>
               </div>
+
               <div class="ci-item">
                 <div class="ci-icon">⚖️</div>
                 <div class="ci-body">
@@ -180,6 +185,7 @@
                   </p>
                 </div>
               </div>
+
               <div class="ci-item">
                 <div class="ci-icon">🖥️</div>
                 <div class="ci-body">
@@ -192,6 +198,7 @@
                 </div>
               </div>
             </div>
+
             <div
               style="
                 margin-top: 32px;
@@ -221,23 +228,25 @@
             </div>
           </div>
 
+          <!-- RIGHT COLUMN — FORM -->
           <div class="contact-form-wrap reveal reveal-delay-2">
             <div class="form-title">Request a Consultation</div>
 
             <form class="contact-form" id="contact-form">
               <div class="form-row">
                 <div class="form-group">
-                  <label>First Name</label
-                  ><input
+                  <label>First Name</label>
+                  <input
                     type="text"
                     name="first_name"
                     placeholder="John"
                     required
                   />
                 </div>
+
                 <div class="form-group">
-                  <label>Last Name</label
-                  ><input
+                  <label>Last Name</label>
+                  <input
                     type="text"
                     name="last_name"
                     placeholder="Doe"
@@ -247,8 +256,8 @@
               </div>
 
               <div class="form-group">
-                <label>Company / Organization</label
-                ><input
+                <label>Company / Organization</label>
+                <input
                   type="text"
                   name="company"
                   placeholder="My Company LLC"
@@ -257,8 +266,8 @@
               </div>
 
               <div class="form-group">
-                <label>Corporate Email</label
-                ><input
+                <label>Corporate Email</label>
+                <input
                   type="email"
                   name="email"
                   placeholder="john@mycompany.com"
@@ -267,8 +276,8 @@
               </div>
 
               <div class="form-group">
-                <label>Phone (optional)</label
-                ><input
+                <label>Phone (optional)</label>
+                <input
                   type="tel"
                   name="phone"
                   placeholder="+1 (555) 000-0000"
@@ -304,13 +313,19 @@
               </div>
 
               <div class="form-group">
-                <label>How Can We Help?</label
-                ><textarea
+                <label>How Can We Help?</label>
+                <textarea
                   name="message"
                   placeholder="Describe your needs, challenges, or the initiative you're working on…"
                   required
                 ></textarea>
               </div>
+
+              <!-- TURNSTILE -->
+              <div
+                class="cf-turnstile"
+                data-sitekey="0x4AAAAAACvYqFbuqNwB9lmt"
+              ></div>
 
               <button
                 type="submit"
@@ -340,11 +355,20 @@
     </section>
 
     <div id="site-footer-placeholder"></div>
+
     <script src="../js/nav.js"></script>
     <script>
       GMFTNav.inject("../", "en");
     </script>
     <script src="../js/main.js"></script>
+
+    <!-- TURNSTILE SCRIPT -->
+    <script
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+      async
+      defer
+    ></script>
+
     <script>
       (function () {
         var p = new URLSearchParams(window.location.search);
