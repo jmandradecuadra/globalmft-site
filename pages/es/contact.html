@@ -17,8 +17,93 @@
     ></script>
 
     <link rel="stylesheet" href="../../css/global.css" />
+
     <style>
-      /* (tu CSS original intacto) */
+      .contact-layout {
+        display: grid;
+        grid-template-columns: 1fr 500px;
+        gap: 72px;
+        align-items: start;
+      }
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+      .ci-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 20px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        transition: border-color var(--transition);
+      }
+      .ci-item:hover {
+        border-color: rgba(232, 78, 27, 0.25);
+      }
+      .ci-icon {
+        width: 40px;
+        height: 40px;
+        background: var(--orange-soft);
+        border: 1px solid rgba(232, 78, 27, 0.2);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        flex-shrink: 0;
+      }
+      .ci-body h4 {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 4px;
+      }
+      .ci-body p {
+        font-size: 14px;
+        color: var(--white);
+      }
+      .ci-body a {
+        color: var(--orange);
+        transition: opacity var(--transition);
+      }
+      .ci-body a:hover {
+        opacity: 0.8;
+      }
+      .contact-form-wrap {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 40px;
+        position: relative;
+        overflow: hidden;
+      }
+      .contact-form-wrap::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--orange), var(--blue-mid));
+      }
+      .form-title {
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 28px;
+        font-family: "Sora", sans-serif;
+      }
+      @media (max-width: 1024px) {
+        .contact-layout {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+      }
     </style>
   </head>
 
@@ -56,7 +141,98 @@
         <div class="contact-layout">
           <!-- COLUMNA IZQUIERDA -->
           <div>
-            <!-- (todo tu contenido original intacto) -->
+            <div class="reveal">
+              <div class="eyebrow">Información de Contacto</div>
+              <h2 style="margin-bottom: 32px">
+                Cómo <span class="text-orange">Contactarnos</span>
+              </h2>
+            </div>
+
+            <div class="contact-info reveal">
+              <div class="ci-item">
+                <div class="ci-icon">🌐</div>
+                <div class="ci-body">
+                  <h4>Sitio Web</h4>
+                  <p>
+                    <a href="https://globalmft.cobranext.com"
+                      >globalmft.cobranext.com</a
+                    >
+                  </p>
+                </div>
+              </div>
+              <div class="ci-item">
+                <div class="ci-icon">📧</div>
+                <div class="ci-body">
+                  <h4>Consultas Generales</h4>
+                  <p>
+                    <a href="mailto:info@globalmft.cobranext.com"
+                      >info@globalmft.cobranext.com</a
+                    >
+                  </p>
+                </div>
+              </div>
+              <div class="ci-item">
+                <div class="ci-icon">💼</div>
+                <div class="ci-body">
+                  <h4>Desarrollo de Negocios y Alianzas</h4>
+                  <p>
+                    <a href="mailto:partners@globalmft.cobranext.com"
+                      >partners@globalmft.cobranext.com</a
+                    >
+                  </p>
+                </div>
+              </div>
+              <div class="ci-item">
+                <div class="ci-icon">⚖️</div>
+                <div class="ci-body">
+                  <h4>Legal y Cumplimiento</h4>
+                  <p>
+                    <a href="mailto:legal@globalmft.cobranext.com"
+                      >legal@globalmft.cobranext.com</a
+                    >
+                  </p>
+                </div>
+              </div>
+              <div class="ci-item">
+                <div class="ci-icon">🖥️</div>
+                <div class="ci-body">
+                  <h4>Soporte de Productos ISV</h4>
+                  <p>
+                    <a href="mailto:isv@globalmft.cobranext.com"
+                      >isv@globalmft.cobranext.com</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              style="
+                margin-top: 32px;
+                padding: 24px;
+                background: var(--surface);
+                border: 1px solid var(--border);
+                border-radius: 8px;
+              "
+              class="reveal"
+            >
+              <h4
+                style="
+                  font-size: 13px;
+                  font-weight: 700;
+                  color: var(--white);
+                  margin-bottom: 8px;
+                "
+              >
+                Tiempos de Respuesta
+              </h4>
+              <p style="font-size: 13px; color: var(--muted); line-height: 1.7">
+                Consultas generales: dentro de 1 día hábil. Solicitudes de
+                productos ISV: dentro de 2 días hábiles. Asuntos legales y de
+                cumplimiento: dentro de 3 días hábiles. Para asuntos urgentes,
+                indique "URGENTE" en el asunto del correo.
+              </p>
+            </div>
           </div>
 
           <!-- FORMULARIO -->
@@ -140,8 +316,8 @@
               <!-- BOTÓN -->
               <button
                 type="submit"
-                class="btn btn-primary"
                 id="submit-btn"
+                class="btn btn-primary"
                 disabled
                 style="
                   width: 100%;
