@@ -8,15 +8,14 @@
       name="description"
       content="Contacte a Global MFT para consultoría en tecnología empresarial, consultas de productos ISV y oportunidades de asociación."
     />
-
-    <link rel="stylesheet" href="/css/global.css" />
-
+    <!-- FIXED: use relative path (../../) instead of absolute /css/global.css
+         The ES contact page lives at /pages/es/contact.html, so CSS is two levels up -->
+    <link rel="stylesheet" href="../../css/global.css" />
     <script
       src="https://challenges.cloudflare.com/turnstile/v0/api.js"
       async
       defer
     ></script>
-
     <style>
       .contact-layout {
         display: grid;
@@ -100,7 +99,6 @@
         font-family: "Sora", sans-serif;
       }
 
-      /* Barra de éxito verde */
       #success-msg {
         display: none;
         margin-top: 24px;
@@ -112,6 +110,32 @@
         text-align: center;
         font-size: 14px;
         font-weight: 600;
+        animation: fadeIn 0.5s ease-out;
+      }
+
+      #error-msg {
+        display: none;
+        margin-top: 24px;
+        padding: 16px;
+        background: rgba(220, 53, 69, 0.15);
+        border: 1px solid #dc3545;
+        color: #ff6b6b;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 600;
+        animation: fadeIn 0.5s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
 
       .btn-primary:disabled {
@@ -135,7 +159,8 @@
     <div class="page-banner">
       <div class="container">
         <div class="breadcrumb">
-          <a href="/">Inicio</a><span>›</span><span>Contacto</span>
+          <a href="../../es/index.html">Inicio</a><span>›</span
+          ><span>Contacto</span>
         </div>
         <div class="eyebrow">Contáctenos</div>
         <h1>
@@ -170,14 +195,33 @@
                 <div class="ci-icon">🌐</div>
                 <div class="ci-body">
                   <h4>Sitio Web</h4>
-                  <p>globalmft.cobranext.pro</p>
+                  <p>
+                    <a href="https://globalmft.cobranext.pro"
+                      >globalmft.cobranext.pro</a
+                    >
+                  </p>
                 </div>
               </div>
               <div class="ci-item">
                 <div class="ci-icon">📧</div>
                 <div class="ci-body">
                   <h4>Consultas Generales</h4>
-                  <p>info@globalmft.cobranext.pro</p>
+                  <p>
+                    <a href="mailto:info@globalmft.cobranext.pro"
+                      >info@globalmft.cobranext.pro</a
+                    >
+                  </p>
+                </div>
+              </div>
+              <div class="ci-item">
+                <div class="ci-icon">🖥️</div>
+                <div class="ci-body">
+                  <h4>Soporte Productos ISV</h4>
+                  <p>
+                    <a href="mailto:isv@globalmft.cobranext.pro"
+                      >isv@globalmft.cobranext.pro</a
+                    >
+                  </p>
                 </div>
               </div>
             </div>
@@ -204,7 +248,8 @@
               </h4>
               <p style="font-size: 13px; color: var(--muted); line-height: 1.7">
                 Consultas generales: dentro de 1 día hábil. Solicitudes de
-                productos ISV: dentro de 2 días hábiles.
+                productos ISV: dentro de 2 días hábiles. Para asuntos urgentes,
+                indique "URGENTE" en el asunto de su mensaje.
               </p>
             </div>
           </div>
@@ -216,12 +261,12 @@
               class="contact-form"
               id="contact-form"
               method="POST"
-              action="/submit"
+              action="/functions/submit"
             >
               <div class="form-row">
                 <div class="form-group">
-                  <label>Nombre</label
-                  ><input
+                  <label>Nombre</label>
+                  <input
                     type="text"
                     name="first_name"
                     placeholder="Juan"
@@ -229,8 +274,8 @@
                   />
                 </div>
                 <div class="form-group">
-                  <label>Apellido</label
-                  ><input
+                  <label>Apellido</label>
+                  <input
                     type="text"
                     name="last_name"
                     placeholder="Pérez"
@@ -239,8 +284,8 @@
                 </div>
               </div>
               <div class="form-group">
-                <label>Empresa</label
-                ><input
+                <label>Empresa</label>
+                <input
                   type="text"
                   name="company"
                   placeholder="Mi Empresa S.A."
@@ -248,15 +293,22 @@
                 />
               </div>
               <div class="form-group">
-                <label>Correo Corporativo</label
-                ><input
+                <label>Correo Corporativo</label>
+                <input
                   type="email"
                   name="email"
                   placeholder="juan@miempresa.com"
                   required
                 />
               </div>
-
+              <div class="form-group">
+                <label>Teléfono (opcional)</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="+1 (555) 000-0000"
+                />
+              </div>
               <div class="form-group">
                 <label>Área de Interés</label>
                 <select name="interest" required>
@@ -265,16 +317,23 @@
                     Estrategia TI y Planificación
                   </option>
                   <option value="Cloud Solutions">Soluciones en la Nube</option>
-                  <option value="Zelle">
+                  <option value="Cybersecurity">
+                    Ciberseguridad y Cumplimiento
+                  </option>
+                  <option value="Digital Transformation">
+                    Transformación Digital
+                  </option>
+                  <option value="Telecom">Telecom y Conectividad</option>
+                  <option value="Analytics">Analítica Empresarial e IA</option>
+                  <option value="Zelle Platform">
                     Plataforma de Verificación Zelle
                   </option>
                   <option value="Partnership">Alianza / Revendedor</option>
                 </select>
               </div>
-
               <div class="form-group">
-                <label>¿Cómo Podemos Ayudarle?</label
-                ><textarea
+                <label>¿Cómo Podemos Ayudarle?</label>
+                <textarea
                   name="message"
                   placeholder="Describa brevemente su consulta…"
                   required
@@ -304,6 +363,10 @@
               <div id="success-msg">
                 ✓ ¡Consulta enviada con éxito! Le contactaremos pronto.
               </div>
+              <div id="error-msg">
+                ✗ Ocurrió un error. Por favor intente de nuevo o escríbanos
+                directamente.
+              </div>
             </form>
           </div>
         </div>
@@ -312,25 +375,37 @@
 
     <div id="site-footer-placeholder"></div>
 
-    <script src="/js/nav.js"></script>
+    <!-- FIXED: use relative paths instead of absolute /js/ paths -->
+    <script src="../../js/nav.js"></script>
     <script>
-      GMFTNav.inject("/", "es");
+      GMFTNav.inject("../../", "es");
     </script>
-    <script src="/js/main.js"></script>
+    <script src="../../js/main.js"></script>
 
     <script>
-      // Habilitar botón tras Turnstile
       function onUnlock() {
         document.getElementById("submit-btn").disabled = false;
       }
 
-      // Manejo de estado de éxito mediante URL
       (function () {
         const params = new URLSearchParams(window.location.search);
-        if (params.get("status") === "success") {
+        const status = params.get("status");
+
+        if (status === "success") {
           document.getElementById("success-msg").style.display = "block";
-          document.getElementById("submit-btn").disabled = true;
-          document.getElementById("submit-btn").innerHTML = "Mensaje Enviado";
+          const btn = document.getElementById("submit-btn");
+          btn.disabled = true;
+          btn.textContent = "Mensaje Enviado ✓";
+          document
+            .getElementById("contact-form")
+            .scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+
+        if (status === "error") {
+          document.getElementById("error-msg").style.display = "block";
+          document
+            .getElementById("contact-form")
+            .scrollIntoView({ behavior: "smooth", block: "center" });
         }
       })();
     </script>

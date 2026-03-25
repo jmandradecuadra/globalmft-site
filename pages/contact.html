@@ -67,6 +67,9 @@
         color: var(--orange);
         transition: opacity var(--transition);
       }
+      .ci-body a:hover {
+        opacity: 0.8;
+      }
 
       .contact-form-wrap {
         background: var(--surface);
@@ -86,7 +89,6 @@
         background: linear-gradient(90deg, var(--orange), var(--blue-mid));
       }
 
-      /* ESTILO DE LA BARRA VERDE DE ÉXITO */
       #success-msg {
         display: none;
         margin-top: 24px;
@@ -94,6 +96,20 @@
         background: rgba(40, 167, 69, 0.15);
         border: 1px solid #28a745;
         color: #28a745;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 600;
+        animation: fadeIn 0.5s ease-out;
+      }
+
+      #error-msg {
+        display: none;
+        margin-top: 24px;
+        padding: 16px;
+        background: rgba(220, 53, 69, 0.15);
+        border: 1px solid #dc3545;
+        color: #ff6b6b;
         border-radius: 8px;
         text-align: center;
         font-size: 14px;
@@ -243,12 +259,12 @@
               class="contact-form"
               id="contact-form"
               method="POST"
-              action="/submit"
+              action="/functions/submit"
             >
               <div class="form-row">
                 <div class="form-group">
-                  <label>First Name</label
-                  ><input
+                  <label>First Name</label>
+                  <input
                     type="text"
                     name="first_name"
                     placeholder="Jane"
@@ -256,8 +272,8 @@
                   />
                 </div>
                 <div class="form-group">
-                  <label>Last Name</label
-                  ><input
+                  <label>Last Name</label>
+                  <input
                     type="text"
                     name="last_name"
                     placeholder="Smith"
@@ -266,8 +282,8 @@
                 </div>
               </div>
               <div class="form-group">
-                <label>Company / Organization</label
-                ><input
+                <label>Company / Organization</label>
+                <input
                   type="text"
                   name="company"
                   placeholder="Acme Corp"
@@ -275,33 +291,47 @@
                 />
               </div>
               <div class="form-group">
-                <label>Business Email</label
-                ><input
+                <label>Business Email</label>
+                <input
                   type="email"
                   name="email"
                   placeholder="jane@acmecorp.com"
                   required
                 />
               </div>
-
+              <div class="form-group">
+                <label>Phone (optional)</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="+1 (555) 000-0000"
+                />
+              </div>
               <div class="form-group">
                 <label>Area of Interest</label>
                 <select name="interest" required>
                   <option value="">Select a service...</option>
-                  <option value="IT Strategy">IT Strategy & Planning</option>
+                  <option value="IT Strategy">
+                    IT Strategy &amp; Planning
+                  </option>
                   <option value="Cloud Solutions">Cloud Solutions</option>
                   <option value="Cybersecurity">
-                    Cybersecurity & Compliance
+                    Cybersecurity &amp; Compliance
                   </option>
+                  <option value="Digital Transformation">
+                    Digital Transformation
+                  </option>
+                  <option value="Telecom">Telecom &amp; Connectivity</option>
+                  <option value="Analytics">Business Analytics &amp; AI</option>
                   <option value="Zelle Platform">
                     Zelle Verification Platform
                   </option>
+                  <option value="Partnership">Partnership / Reseller</option>
                 </select>
               </div>
-
               <div class="form-group">
-                <label>How Can We Help?</label
-                ><textarea
+                <label>How Can We Help?</label>
+                <textarea
                   name="message"
                   placeholder="Describe your needs..."
                   required
@@ -331,6 +361,9 @@
               <div id="success-msg">
                 ✓ Inquiry sent successfully. We will contact you soon!
               </div>
+              <div id="error-msg">
+                ✗ Something went wrong. Please try again or email us directly.
+              </div>
             </form>
           </div>
         </div>
@@ -349,16 +382,26 @@
         document.getElementById("submit-btn").disabled = false;
       }
 
-      // Detectar éxito en la URL y mostrar barra verde
       (function () {
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get("status") === "success") {
-          const successBar = document.getElementById("success-msg");
-          successBar.style.display = "block";
+        const params = new URLSearchParams(window.location.search);
+        const status = params.get("status");
 
-          // Deshabilitar el botón para evitar re-envíos
-          document.getElementById("submit-btn").disabled = true;
-          document.getElementById("submit-btn").innerHTML = "Message Sent";
+        if (status === "success") {
+          document.getElementById("success-msg").style.display = "block";
+          const btn = document.getElementById("submit-btn");
+          btn.disabled = true;
+          btn.textContent = "Message Sent ✓";
+          // Scroll to the form so the message is visible
+          document
+            .getElementById("contact-form")
+            .scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+
+        if (status === "error") {
+          document.getElementById("error-msg").style.display = "block";
+          document
+            .getElementById("contact-form")
+            .scrollIntoView({ behavior: "smooth", block: "center" });
         }
       })();
     </script>
