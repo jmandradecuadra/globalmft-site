@@ -86,18 +86,30 @@
         background: linear-gradient(90deg, var(--orange), var(--blue-mid));
       }
 
-      /* ESTILO DEL MENSAJE DE ÉXITO (VERDE) */
+      /* ESTILO DE LA BARRA VERDE DE ÉXITO */
       #success-msg {
         display: none;
-        margin-top: 20px;
-        padding: 15px;
+        margin-top: 24px;
+        padding: 16px;
         background: rgba(40, 167, 69, 0.15);
         border: 1px solid #28a745;
         color: #28a745;
-        border-radius: 6px;
+        border-radius: 8px;
         text-align: center;
         font-size: 14px;
         font-weight: 600;
+        animation: fadeIn 0.5s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
 
       .btn-primary:disabled {
@@ -156,8 +168,8 @@
                 <div class="ci-body">
                   <h4>Website</h4>
                   <p>
-                    <a href="https://globalmft.cobranext.com"
-                      >globalmft.cobranext.com</a
+                    <a href="https://globalmft.cobranext.pro"
+                      >globalmft.cobranext.pro</a
                     >
                   </p>
                 </div>
@@ -167,8 +179,8 @@
                 <div class="ci-body">
                   <h4>General Inquiries</h4>
                   <p>
-                    <a href="mailto:info@globalmft.cobranext.com"
-                      >info@globalmft.cobranext.com</a
+                    <a href="mailto:info@globalmft.cobranext.pro"
+                      >info@globalmft.cobranext.pro</a
                     >
                   </p>
                 </div>
@@ -178,8 +190,8 @@
                 <div class="ci-body">
                   <h4>ISV Product Support</h4>
                   <p>
-                    <a href="mailto:isv@globalmft.cobranext.com"
-                      >isv@globalmft.cobranext.com</a
+                    <a href="mailto:isv@globalmft.cobranext.pro"
+                      >isv@globalmft.cobranext.pro</a
                     >
                   </p>
                 </div>
@@ -337,16 +349,16 @@
         document.getElementById("submit-btn").disabled = false;
       }
 
+      // Detectar éxito en la URL y mostrar barra verde
       (function () {
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get("status") === "success") {
-          // Mostrar el mensaje verde abajo
-          document.getElementById("success-msg").style.display = "block";
-          // Opcional: Deshabilitar campos para evitar doble envío
-          const fields = document
-            .getElementById("contact-form")
-            .querySelectorAll("input, select, textarea, button");
-          fields.forEach((f) => (f.disabled = true));
+          const successBar = document.getElementById("success-msg");
+          successBar.style.display = "block";
+
+          // Deshabilitar el botón para evitar re-envíos
+          document.getElementById("submit-btn").disabled = true;
+          document.getElementById("submit-btn").innerHTML = "Message Sent";
         }
       })();
     </script>
