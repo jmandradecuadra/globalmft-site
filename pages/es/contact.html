@@ -69,9 +69,7 @@
         color: var(--orange);
         transition: opacity var(--transition);
       }
-      .ci-body a:hover {
-        opacity: 0.8;
-      }
+      .ci-body a:hover { opacity: 0.8; }
 
       .contact-form-wrap {
         background: var(--surface);
@@ -128,14 +126,8 @@
       }
 
       @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+        from { opacity: 0; transform: translateY(10px); }
+        to   { opacity: 1; transform: translateY(0); }
       }
 
       .btn-primary:disabled {
@@ -159,21 +151,11 @@
     <div class="page-banner">
       <div class="container">
         <div class="breadcrumb">
-          <a href="../../es/index.html">Inicio</a><span>›</span
-          ><span>Contacto</span>
+          <a href="../../es/index.html">Inicio</a><span>›</span><span>Contacto</span>
         </div>
         <div class="eyebrow">Contáctenos</div>
-        <h1>
-          Iniciemos una <span style="color: var(--orange)">Conversación</span>
-        </h1>
-        <p
-          style="
-            color: var(--muted);
-            max-width: 520px;
-            font-size: 17px;
-            margin-top: 16px;
-          "
-        >
+        <h1>Iniciemos una <span style="color: var(--orange)">Conversación</span></h1>
+        <p style="color: var(--muted); max-width: 520px; font-size: 17px; margin-top: 16px;">
           Estamos listos para ayudarle a evaluar su panorama TI actual o
           discutir nuestras soluciones ISV.
         </p>
@@ -195,55 +177,27 @@
                 <div class="ci-icon">🌐</div>
                 <div class="ci-body">
                   <h4>Sitio Web</h4>
-                  <p>
-                    <a href="https://globalmft.cobranext.pro"
-                      >globalmft.cobranext.pro</a
-                    >
-                  </p>
+                  <p><a href="https://globalmft.cobranext.pro">globalmft.cobranext.pro</a></p>
                 </div>
               </div>
               <div class="ci-item">
                 <div class="ci-icon">📧</div>
                 <div class="ci-body">
                   <h4>Consultas Generales</h4>
-                  <p>
-                    <a href="mailto:info@globalmft.cobranext.pro"
-                      >info@globalmft.cobranext.pro</a
-                    >
-                  </p>
+                  <p><a href="/cdn-cgi/l/email-protection#2b42454d446b4c4744494a47464d5f05484449594a454e535f055b5944"><span class="__cf_email__" data-cfemail="89e0e7efe6c9eee5e6ebe8e5e4effda7eae6ebfbe8e7ecf1fda7f9fbe6">[email&#160;protected]</span></a></p>
                 </div>
               </div>
               <div class="ci-item">
                 <div class="ci-icon">🖥️</div>
                 <div class="ci-body">
                   <h4>Soporte Productos ISV</h4>
-                  <p>
-                    <a href="mailto:isv@globalmft.cobranext.pro"
-                      >isv@globalmft.cobranext.pro</a
-                    >
-                  </p>
+                  <p><a href="/cdn-cgi/l/email-protection#99f0eaefd9fef5f6fbf8f5f4ffedb7faf6fbebf8f7fce1edb7e9ebf6"><span class="__cf_email__" data-cfemail="8be2f8fdcbece7e4e9eae7e6edffa5e8e4e9f9eae5eef3ffa5fbf9e4">[email&#160;protected]</span></a></p>
                 </div>
               </div>
             </div>
 
-            <div
-              style="
-                margin-top: 32px;
-                padding: 24px;
-                background: var(--surface);
-                border: 1px solid var(--border);
-                border-radius: 8px;
-              "
-              class="reveal"
-            >
-              <h4
-                style="
-                  font-size: 13px;
-                  font-weight: 700;
-                  color: var(--white);
-                  margin-bottom: 8px;
-                "
-              >
+            <div style="margin-top: 32px; padding: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px;" class="reveal">
+              <h4 style="font-size: 13px; font-weight: 700; color: var(--white); margin-bottom: 8px;">
                 Tiempos de Respuesta
               </h4>
               <p style="font-size: 13px; color: var(--muted); line-height: 1.7">
@@ -261,88 +215,50 @@
               class="contact-form"
               id="contact-form"
               method="POST"
-              action="/functions/submit"
+              action="/submit"
             >
               <div class="form-row">
                 <div class="form-group">
                   <label>Nombre</label>
-                  <input
-                    type="text"
-                    name="first_name"
-                    placeholder="Juan"
-                    required
-                  />
+                  <input type="text" name="first_name" placeholder="Juan" required />
                 </div>
                 <div class="form-group">
                   <label>Apellido</label>
-                  <input
-                    type="text"
-                    name="last_name"
-                    placeholder="Pérez"
-                    required
-                  />
+                  <input type="text" name="last_name" placeholder="Pérez" required />
                 </div>
               </div>
               <div class="form-group">
                 <label>Empresa</label>
-                <input
-                  type="text"
-                  name="company"
-                  placeholder="Mi Empresa S.A."
-                  required
-                />
+                <input type="text" name="company" placeholder="Mi Empresa S.A." required />
               </div>
               <div class="form-group">
                 <label>Correo Corporativo</label>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="juan@miempresa.com"
-                  required
-                />
+                <input type="email" name="email" placeholder="juan@miempresa.com" required />
               </div>
               <div class="form-group">
                 <label>Teléfono (opcional)</label>
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="+1 (555) 000-0000"
-                />
+                <input type="tel" name="phone" placeholder="+1 (555) 000-0000" />
               </div>
               <div class="form-group">
                 <label>Área de Interés</label>
                 <select name="interest" required>
                   <option value="">Seleccione un servicio…</option>
-                  <option value="IT Strategy">
-                    Estrategia TI y Planificación
-                  </option>
+                  <option value="IT Strategy">Estrategia TI y Planificación</option>
                   <option value="Cloud Solutions">Soluciones en la Nube</option>
-                  <option value="Cybersecurity">
-                    Ciberseguridad y Cumplimiento
-                  </option>
-                  <option value="Digital Transformation">
-                    Transformación Digital
-                  </option>
+                  <option value="Cybersecurity">Ciberseguridad y Cumplimiento</option>
+                  <option value="Digital Transformation">Transformación Digital</option>
                   <option value="Telecom">Telecom y Conectividad</option>
                   <option value="Analytics">Analítica Empresarial e IA</option>
-                  <option value="Zelle Platform">
-                    Plataforma de Verificación Zelle
-                  </option>
+                  <option value="Zelle Platform">Plataforma de Verificación Zelle</option>
                   <option value="Partnership">Alianza / Revendedor</option>
                 </select>
               </div>
               <div class="form-group">
                 <label>¿Cómo Podemos Ayudarle?</label>
-                <textarea
-                  name="message"
-                  placeholder="Describa brevemente su consulta…"
-                  required
-                ></textarea>
+                <textarea name="message" placeholder="Describa brevemente su consulta…" required></textarea>
               </div>
 
-              <div
-                style="display: flex; justify-content: center; margin: 20px 0"
-              >
+              <div style="display: flex; justify-content: center; margin: 20px 0">
                 <div
                   class="cf-turnstile"
                   data-sitekey="0x4AAAAAACvYqFbuqNwB9lmt"
@@ -364,8 +280,7 @@
                 ✓ ¡Consulta enviada con éxito! Le contactaremos pronto.
               </div>
               <div id="error-msg">
-                ✗ Ocurrió un error. Por favor intente de nuevo o escríbanos
-                directamente.
+                ✗ Ocurrió un error. Por favor intente de nuevo o escríbanos directamente.
               </div>
             </form>
           </div>
@@ -376,10 +291,8 @@
     <div id="site-footer-placeholder"></div>
 
     <!-- FIXED: use relative paths instead of absolute /js/ paths -->
-    <script src="../../js/nav.js"></script>
-    <script>
-      GMFTNav.inject("../../", "es");
-    </script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../../js/nav.js"></script>
+    <script>GMFTNav.inject('../../', 'es');</script>
     <script src="../../js/main.js"></script>
 
     <script>
@@ -395,19 +308,4 @@
           document.getElementById("success-msg").style.display = "block";
           const btn = document.getElementById("submit-btn");
           btn.disabled = true;
-          btn.textContent = "Mensaje Enviado ✓";
-          document
-            .getElementById("contact-form")
-            .scrollIntoView({ behavior: "smooth", block: "center" });
-        }
-
-        if (status === "error") {
-          document.getElementById("error-msg").style.display = "block";
-          document
-            .getElementById("contact-form")
-            .scrollIntoView({ behavior: "smooth", block: "center" });
-        }
-      })();
-    </script>
-  </body>
-</html>
+          btn.textConten

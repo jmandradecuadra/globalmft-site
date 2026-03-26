@@ -67,9 +67,7 @@
         color: var(--orange);
         transition: opacity var(--transition);
       }
-      .ci-body a:hover {
-        opacity: 0.8;
-      }
+      .ci-body a:hover { opacity: 0.8; }
 
       .contact-form-wrap {
         background: var(--surface);
@@ -118,14 +116,8 @@
       }
 
       @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+        from { opacity: 0; transform: translateY(10px); }
+        to   { opacity: 1; transform: translateY(0); }
       }
 
       .btn-primary:disabled {
@@ -153,14 +145,7 @@
         </div>
         <div class="eyebrow">Get In Touch</div>
         <h1>Start a <span style="color: var(--orange)">Conversation</span></h1>
-        <p
-          style="
-            color: var(--muted);
-            max-width: 520px;
-            font-size: 17px;
-            margin-top: 16px;
-          "
-        >
+        <p style="color: var(--muted); max-width: 520px; font-size: 17px; margin-top: 16px;">
           Whether you need a technology partner for a specific initiative or
           want a comprehensive assessment of your current IT landscape, we're
           ready to help.
@@ -183,55 +168,27 @@
                 <div class="ci-icon">🌐</div>
                 <div class="ci-body">
                   <h4>Website</h4>
-                  <p>
-                    <a href="https://globalmft.cobranext.pro"
-                      >globalmft.cobranext.pro</a
-                    >
-                  </p>
+                  <p><a href="https://globalmft.cobranext.pro">globalmft.cobranext.pro</a></p>
                 </div>
               </div>
               <div class="ci-item">
                 <div class="ci-icon">📧</div>
                 <div class="ci-body">
                   <h4>General Inquiries</h4>
-                  <p>
-                    <a href="mailto:info@globalmft.cobranext.pro"
-                      >info@globalmft.cobranext.pro</a
-                    >
-                  </p>
+                  <p><a href="/cdn-cgi/l/email-protection#2e474048416e4942414c4f4243485a004d414c5c4f404b565a005e5c41"><span class="__cf_email__" data-cfemail="2b42454d446b4c4744494a47464d5f05484449594a454e535f055b5944">[email&#160;protected]</span></a></p>
                 </div>
               </div>
               <div class="ci-item">
                 <div class="ci-icon">🖥️</div>
                 <div class="ci-body">
                   <h4>ISV Product Support</h4>
-                  <p>
-                    <a href="mailto:isv@globalmft.cobranext.pro"
-                      >isv@globalmft.cobranext.pro</a
-                    >
-                  </p>
+                  <p><a href="/cdn-cgi/l/email-protection#e0899396a0878c8f82818c8d8694ce838f8292818e859894ce90928f"><span class="__cf_email__" data-cfemail="147d67625473787b7675787972603a777b7666757a716c603a64667b">[email&#160;protected]</span></a></p>
                 </div>
               </div>
             </div>
 
-            <div
-              style="
-                margin-top: 32px;
-                padding: 24px;
-                background: var(--surface);
-                border: 1px solid var(--border);
-                border-radius: 8px;
-              "
-              class="reveal"
-            >
-              <h4
-                style="
-                  font-size: 13px;
-                  font-weight: 700;
-                  color: var(--white);
-                  margin-bottom: 8px;
-                "
-              >
+            <div style="margin-top: 32px; padding: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px;" class="reveal">
+              <h4 style="font-size: 13px; font-weight: 700; color: var(--white); margin-bottom: 8px;">
                 Response Times
               </h4>
               <p style="font-size: 13px; color: var(--muted); line-height: 1.7">
@@ -243,15 +200,7 @@
           </div>
 
           <div class="contact-form-wrap reveal reveal-delay-2">
-            <div
-              class="form-title"
-              style="
-                font-size: 22px;
-                font-weight: 700;
-                color: #fff;
-                margin-bottom: 28px;
-              "
-            >
+            <div class="form-title" style="font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 28px;">
               Request a Consultation
             </div>
 
@@ -259,88 +208,50 @@
               class="contact-form"
               id="contact-form"
               method="POST"
-              action="/functions/submit"
+              action="/submit"
             >
               <div class="form-row">
                 <div class="form-group">
                   <label>First Name</label>
-                  <input
-                    type="text"
-                    name="first_name"
-                    placeholder="Jane"
-                    required
-                  />
+                  <input type="text" name="first_name" placeholder="Jane" required />
                 </div>
                 <div class="form-group">
                   <label>Last Name</label>
-                  <input
-                    type="text"
-                    name="last_name"
-                    placeholder="Smith"
-                    required
-                  />
+                  <input type="text" name="last_name" placeholder="Smith" required />
                 </div>
               </div>
               <div class="form-group">
                 <label>Company / Organization</label>
-                <input
-                  type="text"
-                  name="company"
-                  placeholder="Acme Corp"
-                  required
-                />
+                <input type="text" name="company" placeholder="Acme Corp" required />
               </div>
               <div class="form-group">
                 <label>Business Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="jane@acmecorp.com"
-                  required
-                />
+                <input type="email" name="email" placeholder="jane@acmecorp.com" required />
               </div>
               <div class="form-group">
                 <label>Phone (optional)</label>
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="+1 (555) 000-0000"
-                />
+                <input type="tel" name="phone" placeholder="+1 (555) 000-0000" />
               </div>
               <div class="form-group">
                 <label>Area of Interest</label>
                 <select name="interest" required>
                   <option value="">Select a service...</option>
-                  <option value="IT Strategy">
-                    IT Strategy &amp; Planning
-                  </option>
+                  <option value="IT Strategy">IT Strategy &amp; Planning</option>
                   <option value="Cloud Solutions">Cloud Solutions</option>
-                  <option value="Cybersecurity">
-                    Cybersecurity &amp; Compliance
-                  </option>
-                  <option value="Digital Transformation">
-                    Digital Transformation
-                  </option>
+                  <option value="Cybersecurity">Cybersecurity &amp; Compliance</option>
+                  <option value="Digital Transformation">Digital Transformation</option>
                   <option value="Telecom">Telecom &amp; Connectivity</option>
                   <option value="Analytics">Business Analytics &amp; AI</option>
-                  <option value="Zelle Platform">
-                    Zelle Verification Platform
-                  </option>
+                  <option value="Zelle Platform">Zelle Verification Platform</option>
                   <option value="Partnership">Partnership / Reseller</option>
                 </select>
               </div>
               <div class="form-group">
                 <label>How Can We Help?</label>
-                <textarea
-                  name="message"
-                  placeholder="Describe your needs..."
-                  required
-                ></textarea>
+                <textarea name="message" placeholder="Describe your needs..." required></textarea>
               </div>
 
-              <div
-                style="display: flex; justify-content: center; margin: 20px 0"
-              >
+              <div style="display: flex; justify-content: center; margin: 20px 0">
                 <div
                   class="cf-turnstile"
                   data-sitekey="0x4AAAAAACvYqFbuqNwB9lmt"
@@ -371,10 +282,8 @@
     </section>
 
     <div id="site-footer-placeholder"></div>
-    <script src="../js/nav.js"></script>
-    <script>
-      GMFTNav.inject("../");
-    </script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../js/nav.js"></script>
+    <script>GMFTNav.inject('../');</script>
     <script src="../js/main.js"></script>
 
     <script>
@@ -391,19 +300,4 @@
           const btn = document.getElementById("submit-btn");
           btn.disabled = true;
           btn.textContent = "Message Sent ✓";
-          // Scroll to the form so the message is visible
-          document
-            .getElementById("contact-form")
-            .scrollIntoView({ behavior: "smooth", block: "center" });
-        }
-
-        if (status === "error") {
-          document.getElementById("error-msg").style.display = "block";
-          document
-            .getElementById("contact-form")
-            .scrollIntoView({ behavior: "smooth", block: "center" });
-        }
-      })();
-    </script>
-  </body>
-</html>
+          // Scroll to the form
